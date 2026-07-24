@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Developer Portfolio | B.Sc. (Hons) SPPU</title>
+    <meta name="description" content="Portfolio of Blockchain Technology Student at SPPU, specializing in Solidity, Smart Contracts, and Web3 DApp Development.">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Space Grotesk & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Dynamic Animated Blockchain Node Network Background -->
+    <canvas id="blockchain-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#hero" class="logo">
+                <span class="logo-hash">0x</span>DEVELOPER<span class="pulse-dot"></span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">01. // About</a></li>
+                    <li><a href="#skills" class="nav-link">02. // Tech Stack</a></li>
+                    <li><a href="#projects" class="nav-link">03. // Projects</a></li>
+                    <li><a href="#terminal" class="nav-link">04. // Web3 Terminal</a></li>
+                    <li><a href="#contact" class="btn-glow">Recruit Me</a></li>
+                </ul>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero section" id="hero">
+            <div class="container hero-content">
+                <div class="status-badge">
+                    <span class="status-indicator"></span> OPEN FOR INTERNSHIPS & ROLES @ MNCs
+                </div>
+                <h1 class="hero-title">
+                    Blockchain Developer & <br>
+                    <span class="gradient-text">Smart Contract Engineer</span>
+                </h1>
+                <p class="hero-subtitle">
+                    3rd Year B.Sc. (Hons) Blockchain Technology Student at <strong>Department of Technology, SPPU</strong>. Specialized in EVM architecture, Solidity smart contracts, and Web3 frontend integration.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View DApps & Projects</a>
+                    <a href="#contact" class="btn btn-glass">Contact Candidate</a>
+                </div>
+
+                <!-- Live Network Stats Ticker -->
+                <div class="network-ticker">
+                    <div class="ticker-item">
+                        <span class="ticker-label">INSTITUTION</span>
+                        <span class="ticker-val">Dept. of Tech, SPPU</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-label">TARGET NETWORKS</span>
+                        <span class="ticker-val">Ethereum, Polygon, Arbitrum</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-label">LATEST BLOCK</span>
+                        <span class="ticker-val" id="block-number">#19482011</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <h2 class="section-title"><span class="code-prefix">01.</span> Academic Profile & Specialization</h2>
+                <div class="glass-card about-grid">
+                    <div class="about-text">
+                        <span class="badge-tag">EDUCATION</span>
+                        <h3>B.Sc. (Hons) in Blockchain Technology</h3>
+                        <p class="institution">Savitribai Phule Pune University (SPPU) &bull; Department of Technology</p>
+                        
+                        <p class="bio-paragraph">
+                            I am building a strong theoretical and practical foundation in cryptographic algorithms, decentralized consensus mechanisms, smart contract security, and full-stack Web3 application development. 
+                        </p>
+                        
+                        <div class="academic-highlights">
+                            <div class="highlight-box">
+                                <h4>EVM Architecture</h4>
+                                <p>Deep understanding of gas optimization, memory layout, and execution stack.</p>
+                            </div>
+                            <div class="highlight-box">
+                                <h4>Security First</h4>
+                                <p>Trained in vulnerability mitigation (Reentrancy, Front-running, Overflow checks).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section class="skills section" id="skills">
+            <div class="container">
+                <h2 class="section-title"><span class="code-prefix">02.</span> Technical Stack</h2>
+                <div class="skills-grid">
+                    
+                    <div class="glass-card skill-card">
+                        <div class="card-icon">&#128187;</div>
+                        <h3>Smart Contracts & Web3</h3>
+                        <div class="tags-container">
+                            <span class="skill-tag">Solidity</span>
+                            <span class="skill-tag">Ethers.js</span>
+                            <span class="skill-tag">Web3.js</span>
+                            <span class="skill-tag">Hardhat</span>
+                            <span class="skill-tag">Foundry</span>
+                            <span class="skill-tag">OpenZeppelin</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card skill-card">
+                        <div class="card-icon">&#9881;</div>
+                        <h3>Frontend & Core Web</h3>
+                        <div class="tags-container">
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">HTML5 / CSS3</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">REST APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card skill-card">
+                        <div class="card-icon">&#128274;</div>
+                        <h3>Infrastructure & Tools</h3>
+                        <div class="tags-container">
+                            <span class="skill-tag">IPFS</span>
+                            <span class="skill-tag">MetaMask Integration</span>
+                            <span class="skill-tag">Git / GitHub</span>
+                            <span class="skill-tag">Remix IDE</span>
+                            <span class="skill-tag">Node.js</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="container">
+                <h2 class="section-title"><span class="code-prefix">03.</span> Featured Blockchain Projects</h2>
+                <div class="projects-grid">
+                    
+                    <!-- Project 1 -->
+                    <article class="glass-card project-card">
+                        <div class="project-header">
+                            <span class="net-badge">Sepolia Testnet</span>
+                            <span class="type-badge">Full Stack DApp</span>
+                        </div>
+                        <h3>Decentralized Supply Chain Protocol</h3>
+                        <p class="project-desc">
+                            A smart contract-based supply chain tracker enabling immutable verification of pharmaceutical goods from manufacturer to end recipient using IPFS and ERC-721 tokens.
+                        </p>
+                        <div class="tech-stack">
+                            <span>Solidity</span>
+                            <span>React.js</span>
+                            <span>Ethers.js</span>
+                            <span>IPFS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-glow">Live Demo &#8599;</a>
+                            <a href="#" class="link-subtle">GitHub Repository</a>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="glass-card project-card">
+                        <div class="project-header">
+                            <span class="net-badge">Ethereum</span>
+                            <span class="type-badge">DeFi Engine</span>
+                        </div>
+                        <h3>Token Staking & Yield Protocol</h3>
+                        <p class="project-desc">
+                            An ERC-20 staking DApp with custom reward distribution calculations, reentrancy guards, and real-time APY analytics dashboard integrated with MetaMask.
+                        </p>
+                        <div class="tech-stack">
+                            <span>Solidity</span>
+                            <span>Hardhat</span>
+                            <span>OpenZeppelin</span>
+                            <span>React</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-glow">Live Demo &#8599;</a>
+                            <a href="#" class="link-subtle">GitHub Repository</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Web3 Interactive Terminal Section -->
+        <section class="terminal-section section" id="terminal">
+            <div class="container">
+                <h2 class="section-title"><span class="code-prefix">04.</span> Interactive Smart Contract Terminal</h2>
+                <p class="section-subtitle">Click the button below to simulate deploying and executing a smart contract block locally.</p>
+                
+                <div class="glass-card terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">solc-compiler v0.8.24 -- SPPU-Mainnet</span>
+                    </div>
+                    <div class="terminal-body" id="terminal-body">
+                        <p class="term-line"><span class="term-prompt">sppu@blockchain:~$</span> contract_init --name="MNCRecruiterContract"</p>
+                        <p class="term-line"><span class="term-success">[OK]</span> Solidity Compiler Initialized.</p>
+                        <p class="term-line"><span class="term-info">[INFO]</span> Ready to simulate deployment...</p>
+                    </div>
+                    <div class="terminal-footer">
+                        <button class="btn btn-primary btn-sm" id="deploy-btn">Simulate Block Deployment</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <h2 class="section-title"><span class="code-prefix">05.</span> Recruit / Connect</h2>
+                <div class="glass-card contact-card">
+                    <p class="contact-intro">
+                        Looking for an enthusiastic Blockchain Developer intern or team member for your MNC or Web3 venture? Send me a direct inquiry below.
+                    </p>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label>RECRUITER / SENDER NAME</label>
+                            <input type="text" id="name" placeholder="e.g. Talent Acquisition @ Tech Corp" required>
+                        </div>
+                        <div class="form-group">
+                            <label>OFFICIAL EMAIL</label>
+                            <input type="email" id="email" placeholder="name@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>MESSAGE / OPPORTUNITY DETAILS</label>
+                            <textarea id="message" rows="4" placeholder="Mention job roles, internships, or interview schedules..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Transmit Inquiry</button>
+                        <p id="form-status" class="form-status"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 B.Sc. (Hons) Blockchain Tech Student &bull; Dept. of Technology, SPPU</p>
+            <div class="social-links">
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">GitHub</a>
+                <a href="#" target="_blank">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

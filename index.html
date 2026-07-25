@@ -43,12 +43,15 @@
     <main>
         <!-- Hero Section -->
        <!-- Clean Web3 Hero Section (Option 2) -->
+<!-- Clean Web3 Hero Section with Photo & Name -->
 <section class="hero section" id="hero">
-    <div class="container hero-container">
+    <div class="container hero-container-split">
         <div class="hero-content">
             <div class="status-badge">
                 <span class="status-indicator"></span> OPEN FOR INTERNSHIPS & ROLES @ MNCs
             </div>
+            
+            <h2 class="hero-name-tag">Hi, I'm <strong class="bold-name">Vishvajit Bhagave</strong></h2>
             
             <h1 class="hero-title">
                 Blockchain Developer & <br>
@@ -62,6 +65,48 @@
             <div class="hero-actions">
                 <a href="#projects" class="btn btn-primary">View DApps & Projects</a>
                 <a href="#contact" class="btn btn-secondary">Contact Candidate</a>
+            </div>
+        </div>
+
+        <div class="hero-photo-container">
+            <img src="profile.jpeg" alt="Developer Photo" class="hero-main-photo">
+        </div>
+    </div>
+</section>
+
+<!-- Dedicated About Section with Video (LHS) & Info (RHS) -->
+<section class="about-me section" id="about">
+    <div class="container">
+        <h2 class="section-title"><span class="code-prefix">01.</span> About Me</h2>
+        
+        <div class="about-split-grid">
+            <!-- LHS: Video Introduction -->
+            <div class="glass-card about-video-card">
+                <div class="video-wrapper">
+                    <!-- Replace 'intro-video.mp4' with your actual video filename -->
+                    <video controls poster="video-poster.jpg" class="about-video">
+                        <source src="intro-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-caption">
+                    <span class="pulse-dot-sm"></span> Intro / Elevator Pitch
+                </div>
+            </div>
+
+            <!-- RHS: Information About Me -->
+            <div class="glass-card about-info-card">
+                <div class="about-me-text">
+                    <p class="about-lead">
+                        I am a passionate software enthusiast deeply fascinated by the architecture of decentralized networks and immutable logic.
+                    </p>
+                    <p>
+                        My journey into technology is driven by the desire to build trustless applications that eliminate middlemen and empower users globally. Whether it's writing secure Solidity smart contracts, optimizing gas consumption, or connecting backend ledgers to sleek frontend interfaces, I enjoy the entire lifecycle of Web3 development.
+                    </p>
+                    <p>
+                        Beyond writing code, I actively challenge myself to break down complex technical concepts into simple, intuitive ideas for the tech community, constantly bridging the gap between deep blockchain engineering and public communication.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -265,7 +310,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact Section -->
         <section class="contact section" id="contact">
             <div class="container">

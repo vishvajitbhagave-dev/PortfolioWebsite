@@ -135,37 +135,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-    const deployBtn = document.getElementById("deploy-btn");
-    const terminalBody = document.getElementById("terminal-body");
-
-    if (deployBtn && terminalBody) {
-        deployBtn.addEventListener("click", () => {
-            // Disable button so it cannot be clicked twice
-            deployBtn.disabled = true;
-            deployBtn.innerText = "Executing...";
-
-            // Array of simulated terminal commands
-            const commands = [
-                '<p class="term-line"><span class="term-prompt">sppu@blockchain:~$</span> compiling smart contracts...</p>',
-                '<p class="term-line"><span class="term-info">[INFO]</span> Bytecode generated. Gas optimization successful.</p>',
-                '<p class="term-line"><span class="term-prompt">sppu@blockchain:~$</span> pushing to network...</p>',
-                '<p class="term-line"><span class="term-success">[SUCCESS]</span> Contract deployed at: 0x8fa3...c92</p>'
-            ];
-
-            let delay = 0;
-            commands.forEach((command, index) => {
-                setTimeout(() => {
-                    terminalBody.insertAdjacentHTML('beforeend', command);
-                    
-                    // Reset button text at the end of the simulation
-                    if (index === commands.length - 1) {
-                        deployBtn.innerText = "Deployment Complete";
-                    }
-                }, delay);
-                delay += 800; // Adds a 0.8-second delay between each line printing
-            });
-        });
-    }
-});

@@ -232,11 +232,209 @@ body {
 }
 
 /* Hero Section */
+/* Hero Section (Clean Web3 Background) */
+/* ==================== HERO SECTION (OPTION 2) ==================== */
 .hero {
     min-height: 85vh;
     display: flex;
     align-items: center;
     padding-top: 100px;
+    background: transparent;
+}
+
+.hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(0, 242, 254, 0.08);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 20px;
+    font-family: var(--font-code, monospace);
+    font-size: 0.8rem;
+    color: #00f2fe;
+    margin-bottom: 1.5rem;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #00f2fe;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00f2fe;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 750px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* ==================== ABOUT & EDUCATION SECTION ==================== */
+.about-card {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* Horizontal SPPU Banner */
+.about-image-banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-glow, rgba(255, 255, 255, 0.1));
+}
+
+.college-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.banner-overlay-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.6rem 1.2rem;
+    background: rgba(8, 12, 20, 0.85);
+    backdrop-filter: blur(6px);
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #38bdf8;
+}
+
+/* Content Grid with Profile Pic & Text */
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: start;
+}
+
+.profile-avatar {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+@media (max-width: 768px) {
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .profile-avatar {
+        max-width: 180px;
+        margin: 0 auto;
+    }
+}
+
+/* Academic Profile / College Photo Grid Layout */
+/* Stacked layout for full-width horizontal SPPU banner */
+.about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.about-image-container {
+    position: relative;
+    width: 100%;
+    height: 320px; /* Taller height so the whole building & tower fit */
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-glow);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.college-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Centered focus */
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.about-image-container:hover .college-img {
+    transform: scale(1.03);
+}
+
+.image-overlay-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: rgba(8, 12, 20, 0.85);
+    backdrop-filter: blur(8px);
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+    border-top: 1px solid var(--border-glow);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    .college-img {
+        min-height: 200px;
+    }
 }
 
 .status-badge {
@@ -621,4 +819,91 @@ body {
     .nav-list { flex-direction: column; align-items: flex-start; }
     .hero-title { font-size: 2.4rem; }
     .footer-content { flex-direction: column; gap: 1rem; text-align: center; }
+}
+/* Hero Container with College Background */
+.hero-section {
+  position: relative;
+  background: url('college-bg.jpeg') center/cover no-repeat;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #ffffff;
+}
+
+/* Dark Overlay so text is easily readable */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.75); /* Dark blue-ish tint */
+  z-index: 1;
+}
+
+/* Side-by-Side Flex Layout */
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  width: 100%;
+  gap: 2rem;
+  flex-wrap: wrap; /* Stacks vertically on mobile screens */
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlight {
+  color: #38bdf8; /* Highlight accent color */
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+}
+
+/* Profile Picture Styling */
+.hero-profile {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%; /* Circular profile pic */
+  object-fit: cover;
+  border: 4px solid #38bdf8;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Button Styling */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
 }

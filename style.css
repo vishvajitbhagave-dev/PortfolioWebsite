@@ -907,3 +907,241 @@ body {
 .btn:hover {
   transform: translateY(-2px);
 }
+
+/* ==================== BASE GLASS CARD DESIGN ==================== */
+.glass-card {
+    background: rgba(15, 23, 42, 0.6); /* Dark translucent blue/gray */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px); /* Smooth floating lift effect */
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
+}
+
+/* ==================== 02. TECH STACK SECTION ==================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    line-height: 1;
+}
+
+.skill-card h3 {
+    color: #f8fafc;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Developer Skill Pill Tags */
+.skill-tag {
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-family: var(--font-code, monospace);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: #38bdf8;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* ==================== 03. PROJECTS SECTION ==================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Project Header (Testnet Badges) */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-code, monospace);
+    font-size: 0.8rem;
+}
+
+.net-badge {
+    color: #a78bfa; /* Web3 Purple */
+    background: rgba(167, 139, 250, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+.type-badge {
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Project Typography */
+.project-card h3 {
+    font-size: 1.4rem;
+    color: #f8fafc;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.project-desc {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    flex-grow: 1; /* Pushes the links to the bottom evenly */
+}
+
+/* Raw Text Tech Stack (e.g. Solidity React.js IPFS) */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-code, monospace);
+    font-size: 0.85rem;
+}
+
+.tech-stack span {
+    color: #64748b;
+    transition: color 0.2s ease;
+}
+
+.project-card:hover .tech-stack span {
+    color: #38bdf8; /* Highlights the stack when you hover the card */
+}
+
+/* Project Links */
+.project-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: auto;
+}
+
+.link-glow {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.link-glow:hover {
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.link-subtle {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.link-subtle:hover {
+    color: #f8fafc;
+}
+
+/* ==================== CONTENT CHALLENGE SECTION ==================== */
+.challenge-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    border: 1px solid rgba(167, 139, 250, 0.3); /* Subtle purple border */
+}
+
+.challenge-card h3 {
+    color: #f8fafc;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.challenge-card p {
+    color: #94a3b8;
+    max-width: 650px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.challenge-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #a78bfa; /* Matches the Web3 purple */
+    font-family: var(--font-code, monospace);
+    line-height: 1;
+}
+
+.stat-label {
+    color: #64748b;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .challenge-stats {
+        gap: 2rem;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+}

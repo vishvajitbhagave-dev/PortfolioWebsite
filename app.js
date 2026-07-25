@@ -135,3 +135,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Function to open the modal and set the image source
+function openCertModal(imageSrc) {
+    const modal = document.getElementById("certModal");
+    const modalImg = document.getElementById("certImage");
+    
+    modalImg.src = imageSrc; // Set the image source
+    modal.classList.add("show"); // Trigger the CSS transition
+}
+
+// Function to close the modal
+function closeCertModal() {
+    const modal = document.getElementById("certModal");
+    modal.classList.remove("show"); // Hide the modal
+}
+
+// Automatically close the modal if the user clicks anywhere outside the image
+window.addEventListener("click", function(event) {
+    const modal = document.getElementById("certModal");
+    if (event.target === modal) {
+        closeCertModal();
+    }
+});
+
+// ==================== 3D TILT EFFECT ====================
+// Initialize Vanilla Tilt on all elements with the class 'achievement-card'
+VanillaTilt.init(document.querySelectorAll(".achievement-card"), {
+    max: 12,              // Maximum tilt rotation (degrees)
+    speed: 400,           // Speed of the enter/exit transition
+    glare: true,          // Enables the reflection effect
+    "max-glare": 0.25,    // Maximum glare opacity (0 to 1)
+    scale: 1.02,          // Slightly scale up on hover
+    easing: "cubic-bezier(.03,.98,.52,.99)" // Super smooth easing
+});

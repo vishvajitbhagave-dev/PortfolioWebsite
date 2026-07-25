@@ -41,8 +41,7 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-       <!-- Clean Web3 Hero Section (Option 2) -->
+       
 <!-- Clean Web3 Hero Section with Photo & Name -->
 <section class="hero section" id="hero">
     <div class="container hero-container-split">
@@ -157,7 +156,7 @@
     </div>
 </section>
 
-        <!-- Technical Skills Section -->
+      
       <!-- Technical Skills Section -->
         <section class="skills section" id="skills">
             <div class="container">
@@ -256,6 +255,70 @@
 
             </div>
         </section>
+
+        <!-- Achievements & Certifications Section -->
+        <section class="achievements section" id="certifications">
+            <div class="container">
+                <div class="skills-header-center">
+                    <span class="section-tag-top">CREDENTIALS & MILESTONES</span>
+                    <h2 class="section-title-center">Achievements & Certifications</h2>
+                </div>
+
+                <div class="achievements-grid">
+                    
+                    
+
+                    <!-- Item 1: Certification Example -->
+                    <div class="glass-card achievement-card">
+                        <div class="achievement-icon">🏆</div>
+                        <div class="achievement-content">
+                            <span class="ach-date">2026</span>
+                            <h3>Smart Contract & Blockchain Security</h3>
+                            <p class="ach-issuer">Issued by Platform / Institution</p>
+                            
+                            <!-- Action Buttons Container -->
+                            <div class="ach-actions">
+                                <button onclick="openCertModal('images/certificate1.jpeg')" class="ach-link modal-btn">
+                                    👁️ Quick View
+                                </button>
+                                <span class="ach-divider">•</span>
+                                <!-- Replace href with your actual PDF path. The 'download' attribute forces it to download -->
+                                <a href="docs/certificate1.pdf" download="Blockchain_Security_Certificate.pdf" class="ach-link dl-btn">
+                                    💾 Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Achievement/Award Example -->
+                    <div class="glass-card achievement-card">
+                        <div class="achievement-icon">⭐</div>
+                        <div class="achievement-content">
+                            <span class="ach-date">2025</span>
+                            <h3>45 Days AI Challenge Completion</h3>
+                            <p class="ach-issuer">Self-Driven Technical Communication</p>
+                            
+                            <div class="ach-actions">
+                                <button onclick="openCertModal('images/challenge-cert.jpg')" class="ach-link modal-btn">
+                                    👁️ Quick View
+                                </button>
+                                <span class="ach-divider">•</span>
+                                <a href="docs/AI_Challenge_Cert.pdf" download="AI_Challenge_Certificate.pdf" class="ach-link dl-btn">
+                                    💾 Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== THE HIDDEN MODAL ==================== -->
+        <div id="certModal" class="cert-modal">
+            <span class="cert-close" onclick="closeCertModal()">&times;</span>
+            <img class="cert-modal-content" id="certImage" alt="Certificate Preview">
+        </div>
 
         <!-- Projects Section -->
         <section class="projects section" id="projects">
@@ -405,6 +468,10 @@
         </div>
     </footer>
 
-    <script src="app.js"></script>
-</body>
+<!-- Vanilla Tilt JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+        
+        <!-- Your custom script file -->
+        <script src="app.js"></script>
+    </body>
 </html>

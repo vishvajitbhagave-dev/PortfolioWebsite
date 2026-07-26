@@ -270,7 +270,10 @@
 
                     <!-- Item 1: Certification Example -->
                     <div class="glass-card achievement-card">
-                        <div class="achievement-icon">🏆</div>
+                        <!-- NEW: Verified Badge -->
+                        <div class="status-badge status-verified">
+                            <span class="status-dot"></span> Verified
+                        </div>
                         <div class="achievement-content">
                             <span class="ach-date">2026</span>
                             <h3>Smart Contract & Blockchain Security</h3>
@@ -278,13 +281,22 @@
                             
                             <!-- Action Buttons Container -->
                             <div class="ach-actions">
-                                <button onclick="openCertModal('images/certificate1.jpeg')" class="ach-link modal-btn">
+                                <button onclick="openCertModal('images/certificate1.jpg')" class="ach-link modal-btn">
                                     👁️ Quick View
                                 </button>
+                                
                                 <span class="ach-divider">•</span>
-                                <!-- Replace href with your actual PDF path. The 'download' attribute forces it to download -->
+                                
                                 <a href="docs/certificate1.pdf" download="Blockchain_Security_Certificate.pdf" class="ach-link dl-btn">
                                     💾 Download PDF
+                                </a>
+                                
+                                <span class="ach-divider">•</span>
+                                
+                                <!-- NEW: LinkedIn Verification Link -->
+                                <!-- Replace the href with your actual LinkedIn credential URL -->
+                                <a href="https://www.linkedin.com/in/YOUR-PROFILE/details/certifications/" target="_blank" class="ach-link li-btn">
+                                    <span class="li-icon">in</span> Verify
                                 </a>
                             </div>
                         </div>
@@ -292,7 +304,10 @@
 
                     <!-- Item 2: Achievement/Award Example -->
                     <div class="glass-card achievement-card">
-                        <div class="achievement-icon">⭐</div>
+                        <!-- NEW: Active Badge -->
+                        <div class="status-badge status-active">
+                            <span class="status-dot"></span> Active
+                        </div>
                         <div class="achievement-content">
                             <span class="ach-date">2025</span>
                             <h3>45 Days AI Challenge Completion</h3>
@@ -306,7 +321,31 @@
                                 <a href="docs/AI_Challenge_Cert.pdf" download="AI_Challenge_Certificate.pdf" class="ach-link dl-btn">
                                     💾 Download PDF
                                 </a>
+
+                                   <span class="ach-divider">•</span>
+                                
+                                <!-- NEW: LinkedIn Verification Link -->
+                                <!-- Replace the href with your actual LinkedIn credential URL -->
+                                <a href="https://www.linkedin.com/in/YOUR-PROFILE/details/certifications/" target="_blank" class="ach-link li-btn">
+                                    <span class="li-icon">in</span> Verify
+                                </a>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Academic Milestone Example -->
+                    <div class="glass-card achievement-card">
+                        <!-- NEW: In Progress Badge -->
+                        <div class="status-badge status-progress">
+                            <span class="status-dot"></span> In Progress
+                        </div>
+                        
+                       
+                        <div class="achievement-content">
+                            <span class="ach-date">2024 - Present</span>
+                            <h3>B.Sc. (Hons) Blockchain Technology</h3>
+                            <p class="ach-issuer">Department of Technology, SPPU</p>
+                            <span class="ach-link static-badge">Target: 9.5 CGPA</span>
                         </div>
                     </div>
 

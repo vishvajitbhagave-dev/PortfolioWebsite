@@ -1435,13 +1435,12 @@ body {
 }
 
 .achievement-card {
+    position: relative; /* ADD THIS LINE */
     display: flex;
     gap: 1.5rem;
     padding: 2rem;
     align-items: flex-start;
-    /* Changed from 'all' to specific properties so it doesn't slow down the JS tilt */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    /* Added to keep the glare effect perfectly contained inside the card */
     overflow: hidden; 
 }
 
@@ -1606,4 +1605,78 @@ a.dl-btn {
 .ach-actions .ach-link:hover {
     color: #00ff88; /* A nice green highlight for downloads/actions */
     text-decoration: none;
+}
+
+/* ==================== LINKEDIN VERIFY BUTTON ==================== */
+.li-icon {
+    background-color: #0077b5; /* Official LinkedIn Blue */
+    color: #ffffff;
+    font-weight: 700;
+    font-family: Arial, sans-serif; /* Best for the "in" logo look */
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+/* Hover effect specifically for the LinkedIn button */
+.ach-actions .li-btn:hover {
+    color: #0077b5; 
+    text-decoration: none;
+}
+
+/* ==================== CREDENTIAL STATUS BADGES ==================== */
+.status-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-code, monospace);
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* 🔵 Verified Status */
+.status-verified {
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+.status-verified .status-dot {
+    background-color: #38bdf8;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+}
+
+/* 🟢 Active Status */
+.status-active {
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.status-active .status-dot {
+    background-color: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+/* 🟡 In Progress Status */
+.status-progress {
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.2);
+}
+.status-progress .status-dot {
+    background-color: #fbbf24;
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.8);
 }

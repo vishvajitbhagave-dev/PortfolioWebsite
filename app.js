@@ -77,24 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
         animateNetwork();
     }
 
-    // 2. Simulated Live Block Ticker Counter
-    const blockNumElem = document.getElementById('block-number');
-    if (blockNumElem) {
-        let currentBlock = 19482011;
-        setInterval(() => {
-            currentBlock += 1;
-            blockNumElem.textContent = `#${currentBlock}`;
-        }, 12000); // Increments roughly every 12s matching Ethereum block time
-    }
-
-    // 3. Interactive Terminal Smart Contract Simulator
+    // 2. Interactive Terminal Smart Contract Simulator
     const deployBtn = document.getElementById('deploy-btn');
     const terminalBody = document.getElementById('terminal-body');
 
     if (deployBtn && terminalBody) {
         deployBtn.addEventListener('click', () => {
-            const randomHash = '0x' + Array.from({length: 40}, () => Math.floor(Math.random()*16).toString(16)).join('');
-            
+            const randomHash = '0x' + Array.from({ length: 40 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+
             const lines = [
                 `<p class="term-line"><span class="term-prompt">sppu@blockchain:~$</span> npx hardhat run scripts/deploy.js --network sppuMainnet</p>`,
                 `<p class="term-line"><span class="term-info">[COMPILING]</span> Contracts compiled successfully.</p>`,
@@ -112,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Contact Form Handler
+    // 3. Contact Form Handler
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
 
@@ -125,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Mobile Navigation Menu Toggle
+    // 4. Mobile Navigation Menu Toggle
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
 
@@ -134,38 +124,36 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
         });
     }
-});
 
-// Function to open the modal and set the image source
-function openCertModal(imageSrc) {
-    const modal = document.getElementById("certModal");
-    const modalImg = document.getElementById("certImage");
-    
-    modalImg.src = imageSrc; // Set the image source
-    modal.classList.add("show"); // Trigger the CSS transition
-}
+    // 5. Certificate Preview Modal
+    const certModal = document.getElementById('certModal');
+    const certImage = document.getElementById('certImage');
 
-// Function to close the modal
-function closeCertModal() {
-    const modal = document.getElementById("certModal");
-    modal.classList.remove("show"); // Hide the modal
-}
+    window.openCertModal = function (imageSrc) {
+        certImage.src = imageSrc;
+        certModal.classList.add('show');
+    };
 
-// Automatically close the modal if the user clicks anywhere outside the image
-window.addEventListener("click", function(event) {
-    const modal = document.getElementById("certModal");
-    if (event.target === modal) {
-        closeCertModal();
+    window.closeCertModal = function () {
+        certModal.classList.remove('show');
+    };
+
+    // Close the modal if the user clicks outside the image
+    window.addEventListener('click', (event) => {
+        if (event.target === certModal) {
+            closeCertModal();
+        }
+    });
+
+    // 6. 3D Tilt Effect on Achievement Cards
+    if (window.VanillaTilt) {
+        VanillaTilt.init(document.querySelectorAll('.achievement-card'), {
+            max: 12,
+            speed: 400,
+            glare: true,
+            'max-glare': 0.25,
+            scale: 1.02,
+            easing: 'cubic-bezier(.03,.98,.52,.99)'
+        });
     }
-});
-
-// ==================== 3D TILT EFFECT ====================
-// Initialize Vanilla Tilt on all elements with the class 'achievement-card'
-VanillaTilt.init(document.querySelectorAll(".achievement-card"), {
-    max: 12,              // Maximum tilt rotation (degrees)
-    speed: 400,           // Speed of the enter/exit transition
-    glare: true,          // Enables the reflection effect
-    "max-glare": 0.25,    // Maximum glare opacity (0 to 1)
-    scale: 1.02,          // Slightly scale up on hover
-    easing: "cubic-bezier(.03,.98,.52,.99)" // Super smooth easing
 });

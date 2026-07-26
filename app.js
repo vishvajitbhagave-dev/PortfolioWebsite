@@ -157,3 +157,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// 7. Tech Stack Scroll Reveal Animation
+const skillCards = document.querySelectorAll('.skill-card-item');
+const skillRowTitles = document.querySelectorAll('.skill-row-title');
+
+if (skillCards.length || skillRowTitles.length) {
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                skillObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    skillCards.forEach(card => skillObserver.observe(card));
+    skillRowTitles.forEach(title => skillObserver.observe(title));
+}

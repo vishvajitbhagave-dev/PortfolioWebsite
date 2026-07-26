@@ -467,6 +467,58 @@ body {
     }
 }
 
+/* About Me — Quick Stats Row */
+.about-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 1rem 0.5rem;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+    transform: translateY(-3px);
+}
+
+.stat-value {
+    font-family: var(--font-code);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    line-height: 1;
+}
+
+.stat-key {
+    font-family: var(--font-code);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* =====================================================
    ACADEMIC PROFILE SECTION
 ===================================================== */
@@ -639,6 +691,93 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     transition: all 0.3s ease;
+}
+
+/* Tech Stack — Scroll Reveal Animation */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-card-item {
+    opacity: 0;
+}
+
+.skill-card-item.is-visible {
+    animation: fadeSlideUp 0.6s ease forwards;
+}
+
+/* Stagger each card in a row so they animate one after another */
+.skills-grid-row .skill-card-item:nth-child(1).is-visible { animation-delay: 0.05s; }
+.skills-grid-row .skill-card-item:nth-child(2).is-visible { animation-delay: 0.15s; }
+.skills-grid-row .skill-card-item:nth-child(3).is-visible { animation-delay: 0.25s; }
+.skills-grid-row .skill-card-item:nth-child(4).is-visible { animation-delay: 0.35s; }
+
+/* Tech Stack — Row Title Slide-In */
+.skill-row-title {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.skill-row-title.is-visible {
+    animation: rowTitleSlideIn 0.5s ease forwards;
+}
+
+@keyframes rowTitleSlideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tech Stack — Idle Floating Icon */
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.skill-card-item.is-visible .skill-icon-box {
+    animation: iconFloat 3.5s ease-in-out infinite;
+    animation-delay: 0.8s; /* starts after entrance animation settles */
+}
+
+/* Pause the float on hover so it doesn't fight with the existing hover scale effect */
+.skill-card-item:hover .skill-icon-box {
+    animation-play-state: paused;
+}
+
+/* Tech Stack — Hover Light Sweep */
+.skill-card-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(56, 189, 248, 0.15),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.skill-card-item:hover::before {
+    left: 125%;
 }
 
 .skill-card-item:hover {
@@ -1388,4 +1527,8 @@ button.modal-btn {
     .nav-list { flex-direction: column; align-items: flex-start; }
     .hero-title { font-size: 2.4rem; }
     .footer-content { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+.title-accent {
+    color: var(--accent-blue);
 }

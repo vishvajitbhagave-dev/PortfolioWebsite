@@ -1247,6 +1247,110 @@ button.modal-btn {
 }
 
 /* =====================================================
+   WORK EXPERIENCE SECTION
+===================================================== */
+.experience-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.experience-card {
+    border-left: 3px solid var(--accent-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.exp-title-group h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.6rem;
+}
+
+.exp-company-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.exp-company {
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.exp-type-badge {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+}
+
+.exp-date {
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.exp-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 2rem;
+}
+
+.exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.exp-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.exp-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+}
+
+@media (max-width: 768px) {
+    .exp-details-grid {
+        grid-template-columns: 1fr;
+    }
+    .exp-header {
+        flex-direction: column;
+    }
+}
+
+/* =====================================================
    PHOTO GALLERY
 ===================================================== */
 .gallery-section {

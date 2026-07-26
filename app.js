@@ -77,31 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         animateNetwork();
     }
 
-    // 2. Interactive Terminal Smart Contract Simulator
-    const deployBtn = document.getElementById('deploy-btn');
-    const terminalBody = document.getElementById('terminal-body');
-
-    if (deployBtn && terminalBody) {
-        deployBtn.addEventListener('click', () => {
-            const randomHash = '0x' + Array.from({ length: 40 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-
-            const lines = [
-                `<p class="term-line"><span class="term-prompt">sppu@blockchain:~$</span> npx hardhat run scripts/deploy.js --network sppuMainnet</p>`,
-                `<p class="term-line"><span class="term-info">[COMPILING]</span> Contracts compiled successfully.</p>`,
-                `<p class="term-line"><span class="term-info">[DEPLOYING]</span> Transaction TxHash: ${randomHash.substring(0, 18)}...</p>`,
-                `<p class="term-line"><span class="term-success">[SUCCESS]</span> Contract deployed at: ${randomHash}</p>`
-            ];
-
-            terminalBody.innerHTML = '';
-            lines.forEach((line, idx) => {
-                setTimeout(() => {
-                    terminalBody.innerHTML += line;
-                    terminalBody.scrollTop = terminalBody.scrollHeight;
-                }, idx * 400);
-            });
-        });
-    }
-
     // 3. Contact Form Handler
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');

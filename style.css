@@ -1733,3 +1733,221 @@ a.dl-btn {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==================== SERVICES SECTION STYLING ==================== */
+.services-section {
+    padding: 6rem 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+}
+
+.service-card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.service-card p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Hover Effects matching your portfolio theme */
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 15px 35px -10px rgba(56, 189, 248, 0.2);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== TOP NAVIGATION BAR ==================== */
+header, .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5%;
+    background: rgba(11, 15, 25, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-family: var(--font-code, monospace);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* Recruit Me Button Glow */
+.recruit-btn {
+    padding: 0.6rem 1.4rem;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 8px;
+    background: rgba(56, 189, 248, 0.05);
+    color: #38bdf8;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.recruit-btn:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ==================== HERO SECTION ONE-LINE FIX ==================== */
+.hero-content h1, 
+.hero h1 {
+    font-size: clamp(2.2rem, 3.8vw, 3.5rem); /* Scales smoothly and prevents breaking */
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+/* Forces specific gradient text lines to stay intact on desktop */
+.hero-content h1 span, 
+.hero h1 span {
+    display: inline-block;
+    white-space: nowrap; 
+}
+/* ==================== HERO TITLE OPTIMIZATION ==================== */
+.hero-title {
+    font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.hero-single-line {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+@media (max-width: 968px) {
+    .hero-single-line {
+        white-space: normal; /* Allows wrapping on smaller tablets and mobile devices */
+    }
+}
+
+/* ==================== FIXED NAVBAR & TOP-LEFT LOGO ==================== */
+header, .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5%;
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+    z-index: 1000;
+}
+
+/* Forces logo to stay locked on the far left */
+.logo, .nav-brand {
+    margin-right: auto; 
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+    margin: 0 3rem 0 0; /* Creates breathing room before the Recruit Me button */
+}
+
+.nav-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-family: var(--font-code, monospace);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* ==================== HERO SECTION SPACING FIX ==================== */
+.hero {
+    padding-top: 10rem; /* Pushes the hero content down so nothing hides under the navbar */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}

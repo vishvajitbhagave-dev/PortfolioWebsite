@@ -165,3 +165,18 @@ if (educationCard) {
 
     educationObserver.observe(educationCard);
 }
+
+// GitHub Activity Card — Left-to-Right Reveal Animation
+const githubCard = document.querySelector('.github-activity-card');
+if (githubCard) {
+    const githubObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                githubObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    githubObserver.observe(githubCard);
+}

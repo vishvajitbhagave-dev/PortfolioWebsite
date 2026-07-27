@@ -1631,3 +1631,67 @@ a.info-value:hover {
 .title-accent {
     color: var(--accent-blue);
 }
+
+.about-quick-facts {
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    letter-spacing: 0.3px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+    line-height: 1.6;
+}
+
+/* GitHub Activity Snapshot */
+.github-activity-block {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.github-activity-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+}
+
+.github-activity-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.github-activity-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 2rem 1.5rem;
+}
+
+.github-chart-img {
+    max-width: 100%;
+    height: auto;
+    filter: invert(90%) hue-rotate(180deg);
+    border-radius: 8px;
+}
+
+.github-profile-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.github-profile-link:hover {
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+@media (max-width: 600px) {
+    .github-chart-img {
+        transform: scale(0.85);
+    }
+}

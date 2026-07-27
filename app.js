@@ -150,3 +150,18 @@ if (skillCards.length || skillRowTitles.length) {
     skillCards.forEach(card => skillObserver.observe(card));
     skillRowTitles.forEach(title => skillObserver.observe(title));
 }
+
+// Education Card Fade-In Animation
+const educationCard = document.querySelector('.about-card');
+if (educationCard) {
+    const educationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                educationObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    educationObserver.observe(educationCard);
+}

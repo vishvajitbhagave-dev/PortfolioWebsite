@@ -1907,3 +1907,25 @@ a.info-value:hover {
 .gallery-card:hover .gallery-caption {
     background: linear-gradient(to top, rgba(8, 12, 20, 1), rgba(8, 12, 20, 0.3));
 }
+
+.exp-verify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-blue);
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.exp-verify-link:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}

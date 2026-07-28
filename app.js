@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         function animateNetwork() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Connect nodes with glowing lines representing block ledger sync
             for (let i = 0; i < nodes.length; i++) {
                 for (let j = i + 1; j < nodes.length; j++) {
                     const dx = nodes[i].x - nodes[j].x;
@@ -113,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
         certModal.classList.remove('show');
     };
 
-    // Close the modal if the user clicks outside the image
     window.addEventListener('click', (event) => {
         if (event.target === certModal) {
             closeCertModal();
@@ -181,12 +179,18 @@ if (githubCard) {
     githubObserver.observe(githubCard);
 }
 
-// Gallery — Horizontal Slider Navigation
+// =====================================================
+// GALLERY — Slider + Active Highlight + Progress Dots
+// =====================================================
 const galleryTrack = document.getElementById('gallery-track');
 const galleryPrev = document.getElementById('gallery-prev');
 const galleryNext = document.getElementById('gallery-next');
 
 if (galleryTrack && galleryPrev && galleryNext) {
+
+    const galleryCards = galleryTrack.querySelectorAll('.gallery-card');
+
+    // --- Arrow Navigation ---
     const scrollAmount = () => galleryTrack.querySelector('.gallery-card').offsetWidth + 24;
 
     galleryNext.addEventListener('click', () => {
@@ -195,5 +199,88 @@ if (galleryTrack && galleryPrev && galleryNext) {
 
     galleryPrev.addEventListener('click', () => {
         galleryTrack.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+
+    // --- Active Center (two closest) Highlight ---
+    function updateActiveGalleryCard() {
+        const trackRect = galleryTrack.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+
+        const cardsWithDistance = Array.from(galleryCards).map(card => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            return { card, distance: Math.abs(trackCenter - cardCenter) };
+        });
+
+        cardsWithDistance.sort((a, b) => a.distance - b.distance);
+
+        galleryCards.forEach(card => card.classList.remove('is-active'));
+
+        cardsWithDistance.slice(0, 2).forEach(item => {
+            item.card.classList.add('is-active');
+        });
+    }
+
+    // --- Progress Dots: created ONCE, matching the number of photos ---
+    const galleryDotsContainer = document.getElementById('gallery-dots');
+    let galleryDots = [];
+
+    if (galleryDotsContainer) {
+        galleryDotsContainer.innerHTML = ''; // safety: clear any old dots first
+
+        galleryCards.forEach((card, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('gallery-dot');
+            dot.setAttribute('aria-label', `Go to photo ${index + 1}`);
+            dot.addEventListener('click', () => {
+                card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            });
+            galleryDotsContainer.appendChild(dot);
+        });
+
+        galleryDots = galleryDotsContainer.querySelectorAll('.gallery-dot');
+    }
+
+    function updateActiveDot() {
+        if (!galleryDots.length) return;
+
+        const trackRect = galleryTrack.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        galleryCards.forEach((card, index) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const distance = Math.abs(trackCenter - cardCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        galleryDots.forEach(dot => dot.classList.remove('is-active-dot'));
+        galleryDots[closestIndex].classList.add('is-active-dot');
+    }
+
+    // --- Run once on load ---
+    updateActiveGalleryCard();
+    updateActiveDot();
+
+    // --- Single scroll listener drives both updates ---
+    let scrollTimeout;
+    galleryTrack.addEventListener('scroll', () => {
+        window.cancelAnimationFrame(scrollTimeout);
+        scrollTimeout = window.requestAnimationFrame(() => {
+            updateActiveGalleryCard();
+            updateActiveDot();
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        updateActiveGalleryCard();
+        updateActiveDot();
     });
 }

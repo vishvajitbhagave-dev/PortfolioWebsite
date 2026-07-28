@@ -1412,17 +1412,26 @@ button.modal-btn {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
 }
 
-.gallery-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(56, 189, 248, 0.4);
-    box-shadow: 0 15px 35px -10px rgba(56, 189, 248, 0.25);
+/* Gallery — Active Center Photo Highlight */
+
+.gallery-card {
+    opacity: 0.5;
+    filter: brightness(0.65) saturate(0.75);
+    transform: scale(0.85);
+    transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
 }
 
-.gallery-card:hover img {
+.gallery-card.is-active {
+    opacity: 1;
+    filter: brightness(1) saturate(1);
     transform: scale(1.05);
+}
+
+.gallery-card.is-active:hover {
+    transform: scale(1.08) translateY(-8px);
 }
 
 .gallery-caption {
@@ -1499,6 +1508,37 @@ button.modal-btn {
         width: 36px;
         height: 36px;
     }
+}
+
+/* Gallery — Progress Dots */
+.gallery-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+.gallery-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    padding: 0;
+}
+
+.gallery-dot:hover {
+    background: rgba(56, 189, 248, 0.5);
+}
+
+.gallery-dot.is-active-dot {
+    background: var(--accent-blue);
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+    width: 22px;
+    border-radius: 4px;
 }
 /* =====================================================
    CONTACT SECTION

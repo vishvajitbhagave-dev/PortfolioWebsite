@@ -299,3 +299,19 @@ if (experienceCards.length) {
 
     experienceCards.forEach(card => experienceObserver.observe(card));
 }
+
+// Project Preview Tabs — Video / Live Toggle
+document.querySelectorAll('.project-video-col').forEach(col => {
+    const tabs = col.querySelectorAll('.preview-tab-btn');
+    const panels = col.querySelectorAll('.preview-panel');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('is-active'));
+            panels.forEach(p => p.classList.remove('is-active'));
+
+            tab.classList.add('is-active');
+            document.getElementById(tab.dataset.target).classList.add('is-active');
+        });
+    });
+});

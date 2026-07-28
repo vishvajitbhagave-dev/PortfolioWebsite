@@ -403,62 +403,110 @@
         </div>
 
         <!-- Projects Section -->
-        <section class="projects section" id="projects">
+<section class="projects section" id="projects">
     <div class="container">
         <div class="skills-header-center">
             <span class="section-tag-top">MY WORK</span>
             <h2 class="section-title-center">Blockchain Projects I've <span class="title-accent">Built</span></h2>
             <p class="section-subtitle-center">Full-stack decentralized applications built with Solidity, React, and a focus on real-world usability.</p>
         </div>
-        <div class="projects-grid">
 
-                    <!-- Project 1 -->
-                    <article class="glass-card project-card">
-                        <div class="project-header">
-                            <span class="net-badge">Sepolia Testnet</span>
-                            <span class="type-badge">Full Stack DApp</span>
-                        </div>
-                        <h3>Decentralized Supply Chain Protocol</h3>
-                        <p class="project-desc">
-                            A smart contract-based supply chain tracker enabling immutable verification of pharmaceutical goods from manufacturer to end recipient using IPFS and ERC-721 tokens.
-                        </p>
-                        <div class="tech-stack">
-                            <span>Solidity</span>
-                            <span>React.js</span>
-                            <span>Ethers.js</span>
-                            <span>IPFS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="link-glow">Live Demo &#8599;</a>
-                            <a href="#" class="link-subtle">GitHub Repository</a>
-                        </div>
-                    </article>
+        <div class="projects-showcase">
+            <!-- Project 1: Horizon -->
+            <div class="glass-card project-showcase-card">
+                <div class="project-video-col">
+    <h3 class="project-showcase-title">Horizon</h3>
 
-                    <!-- Project 2 -->
-                    <article class="glass-card project-card">
-                        <div class="project-header">
-                            <span class="net-badge">Ethereum</span>
-                            <span class="type-badge">DeFi Engine</span>
-                        </div>
-                        <h3>Token Staking &amp; Yield Protocol</h3>
-                        <p class="project-desc">
-                            An ERC-20 staking DApp with custom reward distribution calculations, reentrancy guards, and real-time APY analytics dashboard integrated with MetaMask.
-                        </p>
-                        <div class="tech-stack">
-                            <span>Solidity</span>
-                            <span>Hardhat</span>
-                            <span>OpenZeppelin</span>
-                            <span>React</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="link-glow">Live Demo &#8599;</a>
-                            <a href="#" class="link-subtle">GitHub Repository</a>
-                        </div>
-                    </article>
+    <div class="project-preview-tabs">
+        <button class="preview-tab-btn is-active" data-target="horizon-video">Video Demo</button>
+        <button class="preview-tab-btn" data-target="horizon-live">Live Preview</button>
+    </div>
 
+    <div class="project-video-wrapper">
+        <div class="preview-panel is-active" id="horizon-video">
+            <video controls poster="horizon-poster.jpg" class="project-video">
+                <source src="horizon-demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="preview-panel" id="horizon-live">
+            <iframe 
+                src="https://remittance-d-app.vercel.app" 
+                title="Horizon Live Preview"
+                class="project-live-iframe"
+                loading="lazy">
+            </iframe>
+            <a href="https://remittance-d-app.vercel.app" target="_blank" class="iframe-fallback-link">
+                If the preview doesn't load, open Horizon in a new tab &#8599;
+            </a>
+        </div>
+    </div>
+</div>
+
+                <div class="project-info-col">
+                    <span class="net-badge">Stellar Testnet</span>
+                    <p class="project-showcase-desc">
+                        A full-stack blockchain-based cross-border remittance dApp built for migrant workers, featuring live exchange rates, email OTP authentication, and gasless transactions via fee sponsorship.
+                    </p>
+
+                    <div class="project-showcase-links">
+                        <a href="https://remittance-d-app.vercel.app" target="_blank" class="project-action-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Deployed Link
+                        </a>
+                        <a href="https://github.com/vishvajitbhagave-dev/Remittance-dApp" target="_blank" class="project-action-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            GitHub Repository
+                        </a>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span>React.js</span>
+                        <span>Node.js</span>
+                        <span>Stellar SDK</span>
+                        <span>Supabase</span>
+                        <span>Vercel Serverless</span>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Project 2: Placeholder -->
+            <div class="glass-card project-showcase-card">
+                <div class="project-video-col">
+                    <h3 class="project-showcase-title">Project Name</h3>
+                    <div class="project-video-wrapper project-video-placeholder">
+                        <span class="placeholder-text">Project video coming soon</span>
+                    </div>
+                </div>
+
+                <div class="project-info-col">
+                    <span class="net-badge">Network / Platform</span>
+                    <p class="project-showcase-desc">
+                        Short description of what this project does and the problem it solves.
+                    </p>
+
+                    <div class="project-showcase-links">
+                        <a href="#" class="project-action-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Deployed Link
+                        </a>
+                        <a href="#" class="project-action-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            GitHub Repository
+                        </a>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span>Tech</span>
+                        <span>Stack</span>
+                        <span>Goes Here</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Services Section -->
         <section class="services-section section" id="services">

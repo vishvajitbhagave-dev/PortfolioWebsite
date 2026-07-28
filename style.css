@@ -1686,6 +1686,21 @@ a.info-value:hover {
     transition: var(--transition);
 }
 
+@keyframes linkPulseGlow {
+    0%, 100% {
+        text-shadow: 0 0 3px rgba(56, 189, 248, 0.2);
+        opacity: 0.85;
+    }
+    50% {
+        text-shadow: 0 0 16px rgba(56, 189, 248, 1), 0 0 24px rgba(56, 189, 248, 0.6);
+        opacity: 1;
+    }
+}
+
+.github-profile-link {
+    animation: linkPulseGlow 2s ease-in-out infinite;
+}
+
 .github-profile-link:hover {
     text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
 }

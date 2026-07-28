@@ -1267,6 +1267,7 @@ button.modal-btn {
 /* =====================================================
    WORK EXPERIENCE SECTION
 ===================================================== */
+
 .experience-timeline {
     display: flex;
     flex-direction: column;
@@ -1277,7 +1278,6 @@ button.modal-btn {
 .experience-card {
     border-left: 3px solid var(--accent-blue);
     position: relative;
-    overflow: hidden;
 }
 
 .exp-header {
@@ -1912,7 +1912,6 @@ a.info-value:hover {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    margin-bottom: 1.5rem;
     color: var(--accent-blue);
     font-family: var(--font-code);
     font-size: 0.8rem;
@@ -1924,8 +1923,65 @@ a.info-value:hover {
     transition: var(--transition);
 }
 
+.exp-date-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6rem;
+}
+
 .exp-verify-link:hover {
     background: rgba(56, 189, 248, 0.1);
     border-color: var(--accent-blue);
     box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+/* Experience — Skills Used Tags */
+.exp-skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+.exp-skills-tags span {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    transition: var(--transition);
+}
+
+.experience-card:hover .exp-skills-tags span {
+    color: var(--accent-blue);
+}
+
+/* Experience Cards — Staggered Fade-Up Reveal */
+.experience-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.experience-card.is-visible {
+    animation: experienceFadeUp 0.7s ease forwards;
+}
+
+@keyframes experienceFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.experience-timeline .experience-card:nth-child(1).is-visible {
+    animation-delay: 0.1s;
+}
+
+.experience-timeline .experience-card:nth-child(2).is-visible {
+    animation-delay: 0.3s;
 }

@@ -284,3 +284,18 @@ if (galleryTrack && galleryPrev && galleryNext) {
         updateActiveDot();
     });
 }
+
+// Experience Cards — Staggered Fade-Up Animation
+const experienceCards = document.querySelectorAll('.experience-card');
+if (experienceCards.length) {
+    const experienceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                experienceObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    experienceCards.forEach(card => experienceObserver.observe(card));
+}

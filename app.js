@@ -180,3 +180,20 @@ if (githubCard) {
 
     githubObserver.observe(githubCard);
 }
+
+// Gallery — Horizontal Slider Navigation
+const galleryTrack = document.getElementById('gallery-track');
+const galleryPrev = document.getElementById('gallery-prev');
+const galleryNext = document.getElementById('gallery-next');
+
+if (galleryTrack && galleryPrev && galleryNext) {
+    const scrollAmount = () => galleryTrack.querySelector('.gallery-card').offsetWidth + 24;
+
+    galleryNext.addEventListener('click', () => {
+        galleryTrack.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+
+    galleryPrev.addEventListener('click', () => {
+        galleryTrack.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+}

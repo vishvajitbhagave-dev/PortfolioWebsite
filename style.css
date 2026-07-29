@@ -1379,6 +1379,38 @@ button.modal-btn {
         box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
     }
 }
+
+.impact-counter {
+    color: var(--accent-blue);
+    font-weight: 700;
+    font-family: var(--font-code);
+}
+
+/* Video Wrapper — Border Glow Flash on Tab Switch */
+.project-video-wrapper.tab-switch-flash {
+    animation: tabSwitchGlow 0.6s ease-out;
+}
+
+@keyframes tabSwitchGlow {
+    0% {
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 0 rgba(56, 189, 248, 0);
+    }
+    30% {
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+    }
+    100% {
+        border-color: rgba(56, 189, 248, 0.2);
+        box-shadow: 0 0 0 rgba(56, 189, 248, 0);
+    }
+}
+
+/* Project Video Wrapper — Parallax Scroll Depth */
+.project-video-wrapper {
+    will-change: transform;
+    transition: transform 0.05s linear;
+}
 /* =====================================================
    SERVICES SECTION
 ===================================================== */

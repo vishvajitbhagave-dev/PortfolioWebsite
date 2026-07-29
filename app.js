@@ -304,6 +304,7 @@ if (experienceCards.length) {
 document.querySelectorAll('.project-video-col').forEach(col => {
     const tabs = col.querySelectorAll('.preview-tab-btn');
     const panels = col.querySelectorAll('.preview-panel');
+    const videoWrapper = col.querySelector('.project-video-wrapper');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -312,6 +313,13 @@ document.querySelectorAll('.project-video-col').forEach(col => {
 
             tab.classList.add('is-active');
             document.getElementById(tab.dataset.target).classList.add('is-active');
+
+            // Flash the border glow to confirm the switch
+            if (videoWrapper) {
+                videoWrapper.classList.remove('tab-switch-flash');
+                void videoWrapper.offsetWidth; // forces the browser to restart the animation each click
+                videoWrapper.classList.add('tab-switch-flash');
+            }
         });
     });
 });
@@ -338,4 +346,69 @@ if (projectShowcaseCards.length) {
     }, { threshold: 0.2 });
 
     projectShowcaseCards.forEach(card => projectObserver.observe(card));
+}
+
+// Project Impact — Counting Number Animation
+const impactCounters = document.querySelectorAll('.impact-counter');
+if (impactCounters.length) {
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counterEl = entry.target;
+                const target = parseInt(counterEl.dataset.count, 10);
+                const duration = 1200; // total animation time in ms
+                const startTime = performance.now();
+
+                function tick(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const currentValue = Math.floor(progress * target);
+
+                    counterEl.textContent = currentValue;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(tick);
+                    } else {
+                        counterEl.textContent = target; // ensure it lands exactly on the real number
+                    }
+                }
+
+                requestAnimationFrame(tick);
+                counterObserver.unobserve(counterEl);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    impactCounters.forEach(counter => counterObserver.observe(counter));
+}
+
+// Project Video Wrapper — Gentle Parallax on Scroll
+const parallaxWrappers = document.querySelectorAll('.project-video-wrapper');
+
+if (parallaxWrappers.length) {
+    const maxShift = 18; // maximum pixels the box can shift — keep this small
+
+    function updateParallax() {
+        const viewportCenter = window.innerHeight / 2;
+
+        parallaxWrappers.forEach(wrapper => {
+            const rect = wrapper.getBoundingClientRect();
+            const elementCenter = rect.top + rect.height / 2;
+            const distanceFromCenter = elementCenter - viewportCenter;
+
+            // Normalize distance to a small, capped pixel shift
+            const shift = Math.max(Math.min(distanceFromCenter * 0.04, maxShift), -maxShift);
+
+            wrapper.style.transform = `translateY(${shift}px)`;
+        });
+    }
+
+    let parallaxTimeout;
+    window.addEventListener('scroll', () => {
+        window.cancelAnimationFrame(parallaxTimeout);
+        parallaxTimeout = window.requestAnimationFrame(updateParallax);
+    });
+
+    // Run once on load in case a card is already in view
+    updateParallax();
 }

@@ -440,3 +440,22 @@ if (parallaxWrappers.length) {
     // Run once on load in case a card is already in view
     updateParallax();
 }
+
+// Close certificate modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const certModal = document.getElementById('certModal');
+        if (certModal && certModal.classList.contains('show')) {
+            closeCertModal();
+        }
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const certModal = document.getElementById('certModal');
+        if (certModal && certModal.classList.contains('show')) {
+            closeCertModal();
+        }
+    }
+});

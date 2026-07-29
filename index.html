@@ -28,6 +28,9 @@
 </head>
 <body>
 
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Dynamic Animated Blockchain Node Network Background -->
     <canvas id="blockchain-canvas"></canvas>
 
@@ -35,7 +38,7 @@
     <header class="header">
         <nav class="nav container">
             <a href="#hero" class="logo">
-    VB<span class="logo-dot">.dev</span><span class="pulse-dot"></span>
+    VB<span class="logo-dot">.dev</span><span class="pulse-dot" aria-hidden="true"></span>
 </a>
             <div class="nav-menu" id="nav-menu">
                <ul class="nav-list">
@@ -44,8 +47,8 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-               <li><a href="resume.pdf" class="nav-link" target="_blank">Contact</a></li>
-               <li><a href="#contact" class="btn-glow">Download Resume</a></li>
+               <li><a href="#contact" class="nav-link">Contact</a></li>
+               <li><a href="resume.pdf" class="btn-glow" target="_blank">Download Resume</a></li>
             </ul>
             </div>
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
@@ -55,17 +58,17 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
 
         <!-- Hero Section -->
         <section class="hero section" id="hero">
             <div class="container hero-container-split">
                 <div class="hero-content">
                     <div class="status-badge">
-                        <span class="status-indicator"></span> OPEN FOR INTERNSHIPS &amp;  FRESHER ROLES
+                        <span class="status-indicator" aria-hidden="true"></span> OPEN FOR INTERNSHIPS &amp;  FRESHER ROLES
                     </div>
 
-                    <h2 class="hero-name-tag">Hi, I'm <strong class="bold-name">Vishvajit Bhagave</strong></h2>
+                    <p class="hero-name-tag">Hi, I'm <strong class="bold-name">Vishvajit Bhagave</strong></p>
 
                     <h1 class="hero-title">
                         Blockchain Developer &amp; <br>
@@ -85,7 +88,7 @@
                 </div>
 
                 <div class="hero-photo-container">
-                    <img src="profile.jpeg" alt="Developer Photo" class="hero-main-photo">
+                    <img src="profile.jpeg" alt="Vishvajit Bhagave, Blockchain Developer" class="hero-main-photo">
                 </div>
             </div>
         </section>
@@ -109,7 +112,7 @@
                     </video>
                 </div>
                 <div class="video-caption">
-                    <span class="pulse-dot-sm"></span> Intro / Elevator Pitch
+                    <span class="pulse-dot-sm" aria-hidden="true"></span> Intro / Elevator Pitch
                 </div>
             </div>
 
@@ -176,7 +179,7 @@
             <div class="about-content-grid">
                 <!-- Developer Profile Picture Card -->
                 <div class="profile-card">
-                    <img src="DOT.jpeg" alt="Developer Profile" class="profile-avatar">
+                    <img src="DOT.jpeg" alt="Vishvajit Bhagave at Department of Technology, SPPU" class="profile-avatar">
                     <span class="profile-caption">Department of Technology, SPPU</span>
                 </div>
 
@@ -335,7 +338,7 @@
                     <!-- Item 1: Certification Example -->
                     <div class="glass-card achievement-card">
                         <div class="cred-badge cred-verified">
-                            <span class="cred-dot"></span> Verified
+                            <span class="cred-dot" aria-hidden="true"></span> Verified
                         </div>
                         <div class="achievement-content">
                             <span class="ach-date">2026</span>
@@ -344,20 +347,20 @@
 
                             <div class="ach-actions">
                                 <button onclick="openCertModal('images/certificate1.jpg')" class="ach-link modal-btn">
-                                    👁️ Quick View
+                                    <span aria-hidden="true">👁️</span> Quick View
                                 </button>
 
-                                <span class="ach-divider">•</span>
+                                <span class="ach-divider" aria-hidden="true">•</span>
 
                                 <a href="docs/certificate1.pdf" download="Blockchain_Security_Certificate.pdf" class="ach-link dl-btn">
-                                    💾 Download PDF
+                                    <span aria-hidden="true">💾</span> Download PDF
                                 </a>
 
-                                <span class="ach-divider">•</span>
+                                <span class="ach-divider" aria-hidden="true">•</span>
 
                                 <!-- Replace the href with your actual LinkedIn credential URL -->
                                 <a href="https://www.linkedin.com/in/YOUR-PROFILE/details/certifications/" target="_blank" class="ach-link li-btn">
-                                    <span class="li-icon">in</span> Verify
+                                    <span class="li-icon" aria-hidden="true">in</span> Verify
                                 </a>
                             </div>
                         </div>
@@ -366,7 +369,7 @@
                     <!-- Item 2: Achievement/Award Example -->
                     <div class="glass-card achievement-card">
                         <div class="cred-badge cred-active">
-                            <span class="cred-dot"></span> Active
+                            <span class="cred-dot" aria-hidden="true"></span> Active
                         </div>
                         <div class="achievement-content">
                             <span class="ach-date">2025</span>
@@ -375,18 +378,18 @@
 
                             <div class="ach-actions">
                                 <button onclick="openCertModal('images/challenge-cert.jpg')" class="ach-link modal-btn">
-                                    👁️ Quick View
+                                    <span aria-hidden="true">👁️</span> Quick View
                                 </button>
-                                <span class="ach-divider">•</span>
+                                <span class="ach-divider" aria-hidden="true">•</span>
                                 <a href="docs/AI_Challenge_Cert.pdf" download="AI_Challenge_Certificate.pdf" class="ach-link dl-btn">
-                                    💾 Download PDF
+                                    <span aria-hidden="true">💾</span> Download PDF
                                 </a>
 
-                                <span class="ach-divider">•</span>
+                                <span class="ach-divider" aria-hidden="true">•</span>
 
                                 <!-- Replace the href with your actual LinkedIn credential URL -->
                                 <a href="https://www.linkedin.com/in/YOUR-PROFILE/details/certifications/" target="_blank" class="ach-link li-btn">
-                                    <span class="li-icon">in</span> Verify
+                                    <span class="li-icon" aria-hidden="true">in</span> Verify
                                 </a>
                             </div>
                         </div>
@@ -395,7 +398,7 @@
                     <!-- Item 3: Academic Milestone Example -->
                     <div class="glass-card achievement-card">
                         <div class="cred-badge cred-progress">
-                            <span class="cred-dot"></span> In Progress
+                            <span class="cred-dot" aria-hidden="true"></span> In Progress
                         </div>
                         <div class="achievement-content">
                             <span class="ach-date">2024 - Present</span>
@@ -411,7 +414,7 @@
 
         <!-- Certificate Preview Modal -->
         <div id="certModal" class="cert-modal">
-            <span class="cert-close" onclick="closeCertModal()">&times;</span>
+            <button class="cert-close" onclick="closeCertModal()" aria-label="Close certificate preview">&times;</button>
             <img class="cert-modal-content" id="certImage" alt="Certificate Preview">
         </div>
 
@@ -477,11 +480,11 @@
 
                     <div class="project-showcase-links">
                         <a href="https://remittance-d-app.vercel.app" target="_blank" class="project-action-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             Deployed Link
                         </a>
                         <a href="https://github.com/vishvajitbhagave-dev/Remittance-dApp" target="_blank" class="project-action-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                             GitHub Repository
                         </a>
                     </div>
@@ -513,11 +516,11 @@
 
                     <div class="project-showcase-links">
                         <a href="#" class="project-action-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             Deployed Link
                         </a>
                         <a href="#" class="project-action-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                             GitHub Repository
                         </a>
                     </div>
@@ -543,19 +546,19 @@
 
                 <div class="services-grid">
                     <div class="glass-card service-card">
-                        <div class="service-icon">💻</div>
+                        <div class="service-icon" aria-hidden="true">💻</div>
                         <h3>Frontend Development</h3>
                         <p>Modern and responsive user interfaces built with HTML, CSS, JavaScript, React and Bootstrap.</p>
                     </div>
 
                     <div class="glass-card service-card">
-                        <div class="service-icon">⚡</div>
+                        <div class="service-icon" aria-hidden="true">⚡</div>
                         <h3>Responsive Web Development</h3>
                         <p>Pixel-perfect websites that provide a smooth and consistent experience across all screen sizes.</p>
                     </div>
 
                     <div class="glass-card service-card">
-                        <div class="service-icon">🌐</div>
+                        <div class="service-icon" aria-hidden="true">🌐</div>
                         <h3>WordPress Development</h3>
                         <p>Professional WordPress websites with custom designs, Elementor, plugins and responsive layouts.</p>
                     </div>
@@ -618,7 +621,7 @@
     <div class="exp-date-group">
         <span class="exp-date">Feb 2026 - Apr 2026</span>
         <a href="https://www.risein.com/certificates/ESJANtQN" target="_blank" class="exp-verify-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg>
             Verify Certificate
         </a>
     </div>
@@ -711,7 +714,7 @@
     <div class="contact-info-list">
         <div class="contact-info-item">
             <div class="contact-info-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </div>
             <div class="contact-info-text">
                 <span class="info-label">EMAIL</span>
@@ -721,7 +724,7 @@
 
         <div class="contact-info-item">
             <div class="contact-info-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2.03z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2.03z"></path></svg>
             </div>
             <div class="contact-info-text">
                 <span class="info-label">PHONE</span>
@@ -731,7 +734,7 @@
 
         <div class="contact-info-item">
             <div class="contact-info-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </div>
             <div class="contact-info-text">
                 <span class="info-label">LOCATION</span>
@@ -741,7 +744,7 @@
 
         <div class="contact-info-item">
             <div class="contact-info-icon">
-                <img src="https://cdn.simpleicons.org/linkedin/38bdf8" alt="LinkedIn logo">
+                <img src="https://cdn.simpleicons.org/linkedin/38bdf8" alt="" aria-hidden="true">
             </div>
             <div class="contact-info-text">
                 <span class="info-label">LINKEDIN</span>
@@ -751,17 +754,17 @@
 
         <div class="contact-info-item">
             <div class="contact-info-icon">
-                <img src="https://cdn.simpleicons.org/github/38bdf8" alt="GitHub logo">
+                <img src="https://cdn.simpleicons.org/github/38bdf8" alt="" aria-hidden="true">
             </div>
             <div class="contact-info-text">
                 <span class="info-label">GITHUB</span>
-                <a href="https://github.com/vishvajitbhagave-dev" target="_blank" class="info-value">vishvajitbhagave-dev </a>
+                <a href="https://github.com/vishvajitbhagave-dev" target="_blank" class="info-value">vishvajitbhagave-dev</a>
             </div>
         </div>
 
         <div class="contact-info-item">
             <div class="contact-info-icon">
-                <img src="https://cdn.simpleicons.org/x/38bdf8" alt="X logo">
+                <img src="https://cdn.simpleicons.org/x/38bdf8" alt="" aria-hidden="true">
             </div>
             <div class="contact-info-text">
                 <span class="info-label">TWITTER / X</span>
@@ -771,7 +774,7 @@
 
         <div class="contact-info-item">
             <div class="contact-info-icon">
-                <img src="https://cdn.simpleicons.org/threads/38bdf8" alt="Threads logo">
+                <img src="https://cdn.simpleicons.org/threads/38bdf8" alt="" aria-hidden="true">
             </div>
             <div class="contact-info-text">
                 <span class="info-label">THREADS</span>
@@ -781,20 +784,20 @@
     </div>
 
     <div class="contact-social-row">
-        <a href="https://github.com/your-username" target="_blank" aria-label="GitHub">
-            <img src="https://cdn.simpleicons.org/github/8a99ad" alt="GitHub">
+        <a href="https://github.com/vishvajitbhagave-dev" target="_blank" aria-label="GitHub">
+            <img src="https://cdn.simpleicons.org/github/8a99ad" alt="" aria-hidden="true">
         </a>
         <a href="https://linkedin.com/in/your-profile" target="_blank" aria-label="LinkedIn">
-            <img src="https://cdn.simpleicons.org/linkedin/8a99ad" alt="LinkedIn">
+            <img src="https://cdn.simpleicons.org/linkedin/8a99ad" alt="" aria-hidden="true">
         </a>
         <a href="https://x.com/your-handle" target="_blank" aria-label="Twitter">
-            <img src="https://cdn.simpleicons.org/x/8a99ad" alt="X">
+            <img src="https://cdn.simpleicons.org/x/8a99ad" alt="" aria-hidden="true">
         </a>
         <a href="https://threads.net/@your-handle" target="_blank" aria-label="Threads">
-            <img src="https://cdn.simpleicons.org/threads/8a99ad" alt="Threads">
+            <img src="https://cdn.simpleicons.org/threads/8a99ad" alt="" aria-hidden="true">
         </a>
-        <a href="mailto:youremail@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <a href="mailto:vishvajitbhagave@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         </a>
     </div>
 </div>
@@ -803,19 +806,19 @@
             <div class="glass-card contact-form-card">
                 <form id="contact-form">
                     <div class="form-group">
-                        <label>RECRUITER / SENDER NAME</label>
+                        <label for="name">RECRUITER / SENDER NAME</label>
                         <input type="text" id="name" placeholder="e.g. Talent Acquisition @ Tech Corp" required>
                     </div>
                     <div class="form-group">
-                        <label>OFFICIAL EMAIL</label>
+                        <label for="email">OFFICIAL EMAIL</label>
                         <input type="email" id="email" placeholder="name@company.com" required>
                     </div>
                     <div class="form-group">
-                        <label>MESSAGE / OPPORTUNITY DETAILS</label>
+                        <label for="message">MESSAGE / OPPORTUNITY DETAILS</label>
                         <textarea id="message" rows="4" placeholder="Mention job roles, internships, or interview schedules..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-full">Transmit Inquiry</button>
-                    <p id="form-status" class="form-status"></p>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </div>
@@ -830,9 +833,9 @@
         <div class="container footer-content">
             <p>&copy; 2026 B.Sc. (Hons) Blockchain Tech Student &bull; Dept. of Technology, SPPU</p>
             <div class="social-links">
-                <a href="#" target="_blank">LinkedIn</a>
-                <a href="#" target="_blank">GitHub</a>
-                <a href="#" target="_blank">Email</a>
+                <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+                <a href="https://github.com/vishvajitbhagave-dev" target="_blank">GitHub</a>
+                <a href="mailto:vishvajitbhagave@gmail.com">Email</a>
             </div>
         </div>
     </footer>

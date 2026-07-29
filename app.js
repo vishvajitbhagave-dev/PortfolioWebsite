@@ -315,3 +315,27 @@ document.querySelectorAll('.project-video-col').forEach(col => {
         });
     });
 });
+
+// Project Cards — Staggered Fade-Up Animation
+const projectShowcaseCards = document.querySelectorAll('.project-showcase-card');
+if (projectShowcaseCards.length) {
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+
+                // Trigger the Live Preview tab's one-time pulse after this card's entrance animation
+                const liveTab = entry.target.querySelector('.preview-tab-btn[data-target="horizon-live"]');
+                if (liveTab) {
+                    setTimeout(() => {
+                        liveTab.classList.add('pulse-once');
+                    }, 900); // waits for the card's own fade-up to finish first
+                }
+
+                projectObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    projectShowcaseCards.forEach(card => projectObserver.observe(card));
+}

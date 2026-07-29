@@ -76,18 +76,46 @@ document.addEventListener('DOMContentLoaded', () => {
         animateNetwork();
     }
 
-    // 3. Contact Form Handler
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+   // 3. Contact Form Handler
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formStatus.style.color = '#00ff88';
-            formStatus.textContent = '[SUCCESS]: Inquiry transmitted successfully! I will respond promptly.';
-            contactForm.reset();
-        });
-    }
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        try {
+            const response = await fetch('/api/send-message', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            if (response.ok) {
+                formStatus.style.color = '#00ff88';
+                formStatus.textContent = '[SUCCESS]: Inquiry transmitted successfully! I will respond promptly.';
+                contactForm.reset();
+            } else {
+                throw new Error('Failed to send');
+            }
+        } catch (error) {
+            formStatus.style.color = '#ff5f56';
+            formStatus.textContent = '[ERROR]: Something went wrong. Please try emailing me directly.';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    });
+}
 
     // 4. Mobile Navigation Menu Toggle
     const navToggle = document.getElementById('nav-toggle');

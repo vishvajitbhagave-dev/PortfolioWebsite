@@ -215,7 +215,6 @@ body {
     color: var(--accent-blue);
     font-weight: 500;
 }
-
 .pulse-dot {
     display: inline-block;
     width: 8px;
@@ -399,7 +398,7 @@ body {
 }
 
 /* =====================================================
-   ABOUT ME SECTION 
+   ABOUT ME SECTION (Video / Intro split layout)
 ===================================================== */
 .about-split-grid {
     display: grid;
@@ -486,7 +485,7 @@ body {
     }
 }
 
-/* Quick Stats Row */
+/* About Me — Quick Stats Row */
 .about-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -576,19 +575,6 @@ body {
     display: block;
 }
 
-.banner-overlay-tag {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.6rem 1.2rem;
-    background: rgba(8, 12, 20, 0.85);
-    backdrop-filter: blur(6px);
-    font-family: var(--font-code);
-    font-size: 0.8rem;
-    color: var(--accent-blue);
-}
-
 .about-content-grid {
     display: grid;
     grid-template-columns: 220px 1fr;
@@ -604,6 +590,16 @@ body {
     object-fit: cover;
     border: 2px solid var(--accent-blue);
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+.profile-caption {
+    display: block;
+    margin-top: 0.75rem;
+    text-align: center;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+    letter-spacing: 0.5px;
 }
 
 .badge-tag {
@@ -659,7 +655,7 @@ body {
 }
 
 /* =====================================================
-   SECTION HEADERS
+   SECTION HEADERS (Skills / Achievements / Services / Gallery)
 ===================================================== */
 .skills-header-center {
     text-align: center;
@@ -692,7 +688,7 @@ body {
 }
 
 /* =====================================================
-   TECHNICAL SKILLS GRID
+   TECHNICAL SKILLS GRID (4-column rows)
 ===================================================== */
 .skill-row-title {
     color: var(--accent-blue);
@@ -726,8 +722,6 @@ body {
 }
 
 .skill-card-item {
-    position: relative;
-    overflow: hidden;
     text-align: center;
     padding: 2.5rem 1.5rem;
     display: flex;
@@ -739,12 +733,11 @@ body {
     border-radius: 16px;
     transition: all 0.3s ease;
     opacity: 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.skill-card-item.is-visible {
-    animation: fadeSlideUp 0.6s ease forwards;
-}
-
+/* Tech Stack — Scroll Reveal Animation */
 @keyframes fadeSlideUp {
     from {
         opacity: 0;
@@ -756,13 +749,33 @@ body {
     }
 }
 
-/* Stagger each card */
+.skill-card-item.is-visible {
+    animation: fadeSlideUp 0.6s ease forwards;
+}
+
+/* Stagger each card in a row so they animate one after another */
 .skills-grid-row .skill-card-item:nth-child(1).is-visible { animation-delay: 0.05s; }
 .skills-grid-row .skill-card-item:nth-child(2).is-visible { animation-delay: 0.15s; }
 .skills-grid-row .skill-card-item:nth-child(3).is-visible { animation-delay: 0.25s; }
 .skills-grid-row .skill-card-item:nth-child(4).is-visible { animation-delay: 0.35s; }
 
-/* Light Sweep */
+/* Tech Stack — Idle Floating Icon */
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.skill-card-item.is-visible .skill-icon-box {
+    animation: iconFloat 3.5s ease-in-out infinite;
+    animation-delay: 0.8s; /* starts after entrance animation settles */
+}
+
+/* Pause the float on hover so it doesn't fight with the existing hover scale effect */
+.skill-card-item:hover .skill-icon-box {
+    animation-play-state: paused;
+}
+
+/* Tech Stack — Hover Light Sweep */
 .skill-card-item::before {
     content: '';
     position: absolute;
@@ -806,20 +819,9 @@ body {
     box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.05);
 }
 
-.skill-card-item.is-visible .skill-icon-box {
-    animation: iconFloat 3.5s ease-in-out infinite;
-    animation-delay: 0.8s;
-}
-
 .skill-card-item:hover .skill-icon-box {
-    animation-play-state: paused;
     border-color: var(--accent-blue);
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 15px rgba(56, 189, 248, 0.1);
-}
-
-@keyframes iconFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
 }
 
 .skill-card-item h3 {
@@ -852,6 +854,96 @@ body {
 @media (max-width: 600px) {
     .skills-grid-row {
         grid-template-columns: 1fr;
+    }
+}
+
+/* GitHub Activity Snapshot */
+.github-activity-block {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.github-activity-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+}
+
+.github-activity-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.github-activity-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* GitHub Activity Card — Left-to-Right Reveal */
+.github-activity-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+    z-index: 2;
+    transform-origin: right;
+}
+
+.github-activity-card.is-revealed::after {
+    animation: curtainWipe 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes curtainWipe {
+    to {
+        transform: scaleX(0);
+    }
+}
+
+.github-chart-img {
+    max-width: 100%;
+    height: auto;
+    filter: invert(90%) hue-rotate(180deg);
+    border-radius: 8px;
+}
+
+@keyframes linkPulseGlow {
+    0%, 100% {
+        text-shadow: 0 0 3px rgba(56, 189, 248, 0.2);
+        opacity: 0.85;
+    }
+    50% {
+        text-shadow: 0 0 16px rgba(56, 189, 248, 1), 0 0 24px rgba(56, 189, 248, 0.6);
+        opacity: 1;
+    }
+}
+
+.github-profile-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+    animation: linkPulseGlow 2s ease-in-out infinite;
+}
+
+.github-profile-link:hover {
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+@media (max-width: 600px) {
+    .github-chart-img {
+        transform: scale(0.85);
     }
 }
 
@@ -961,6 +1053,7 @@ button.modal-btn {
     text-align: left;
 }
 
+/* LinkedIn Verify Button */
 .li-icon {
     background-color: #0077b5;
     color: #ffffff;
@@ -978,6 +1071,7 @@ button.modal-btn {
     text-decoration: none;
 }
 
+/* Credential Status Badges (top-right corner tag on achievement cards) */
 .cred-badge {
     position: absolute;
     top: 1.25rem;
@@ -1029,6 +1123,7 @@ button.modal-btn {
     box-shadow: 0 0 8px rgba(251, 191, 36, 0.8);
 }
 
+/* Certificate Preview Modal */
 .cert-modal {
     visibility: hidden;
     opacity: 0;
@@ -1073,10 +1168,10 @@ button.modal-btn {
     font-size: 2.5rem;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.3s ease;
     background: none;
     border: none;
     font-family: inherit;
-    transition: color 0.3s ease;
 }
 
 .cert-close:hover {
@@ -1093,6 +1188,7 @@ button.modal-btn {
 /* =====================================================
    PROJECTS SECTION
 ===================================================== */
+
 .projects-showcase {
     display: flex;
     flex-direction: column;
@@ -1119,8 +1215,13 @@ button.modal-btn {
     }
 }
 
-.projects-showcase .project-showcase-card:nth-child(1).is-visible { animation-delay: 0.1s; }
-.projects-showcase .project-showcase-card:nth-child(2).is-visible { animation-delay: 0.3s; }
+.projects-showcase .project-showcase-card:nth-child(1).is-visible {
+    animation-delay: 0.1s;
+}
+
+.projects-showcase .project-showcase-card:nth-child(2).is-visible {
+    animation-delay: 0.3s;
+}
 
 .project-video-col {
     display: flex;
@@ -1146,6 +1247,7 @@ button.modal-btn {
     transition: transform 0.05s linear;
 }
 
+/* Video Wrapper — Border Glow Flash on Tab Switch */
 .project-video-wrapper.tab-switch-flash {
     animation: tabSwitchGlow 0.6s ease-out;
 }
@@ -1257,6 +1359,7 @@ button.modal-btn {
     color: var(--accent-blue);
 }
 
+/* Project Preview Tabs (Video / Live) */
 .project-preview-tabs {
     display: flex;
     gap: 0.6rem;
@@ -1286,16 +1389,24 @@ button.modal-btn {
     border-color: var(--accent-blue);
 }
 
+/* Live Preview Tab — One-Time Highlight Pulse */
 .preview-tab-btn[data-target="horizon-live"].pulse-once {
     animation: livePreviewPulse 1.4s ease-out 1;
 }
 
 @keyframes livePreviewPulse {
-    0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.6); }
-    70% { box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+    }
 }
 
+/* Preview Panels */
 .preview-panel {
     display: none;
     width: 100%;
@@ -1329,6 +1440,7 @@ button.modal-btn {
     white-space: nowrap;
 }
 
+/* Project — Problem / Solution / Impact */
 .project-psi {
     display: flex;
     flex-direction: column;
@@ -1458,6 +1570,7 @@ button.modal-btn {
 /* =====================================================
    WORK EXPERIENCE SECTION
 ===================================================== */
+
 .experience-timeline {
     display: flex;
     flex-direction: column;
@@ -1483,8 +1596,13 @@ button.modal-btn {
     }
 }
 
-.experience-timeline .experience-card:nth-child(1).is-visible { animation-delay: 0.1s; }
-.experience-timeline .experience-card:nth-child(2).is-visible { animation-delay: 0.3s; }
+.experience-timeline .experience-card:nth-child(1).is-visible {
+    animation-delay: 0.1s;
+}
+
+.experience-timeline .experience-card:nth-child(2).is-visible {
+    animation-delay: 0.3s;
+}
 
 .exp-header {
     display: flex;
@@ -1532,6 +1650,34 @@ button.modal-btn {
     white-space: nowrap;
 }
 
+.exp-date-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6rem;
+}
+
+.exp-verify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent-blue);
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.exp-verify-link:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
 .exp-details-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1565,34 +1711,7 @@ button.modal-btn {
     box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
 }
 
-.exp-verify-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--accent-blue);
-    font-family: var(--font-code);
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    padding: 0.35rem 0.9rem;
-    border-radius: 50px;
-    transition: var(--transition);
-}
-
-.exp-date-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.6rem;
-}
-
-.exp-verify-link:hover {
-    background: rgba(56, 189, 248, 0.1);
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
-}
-
+/* Experience — Skills Used Tags */
 .exp-skills-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1629,10 +1748,12 @@ button.modal-btn {
 /* =====================================================
    PHOTO GALLERY
 ===================================================== */
+
 .gallery-section {
     padding: 6rem 0;
 }
 
+/* Photo Gallery — Horizontal Slider */
 .gallery-slider-wrapper {
     position: relative;
     margin-top: 3rem;
@@ -1652,6 +1773,7 @@ button.modal-btn {
     display: none;
 }
 
+/* Base card state (dimmed/small) + Active Center Highlight */
 .gallery-card {
     flex: 0 0 calc(25% - 1.125rem);
     scroll-snap-align: start;
@@ -1663,7 +1785,7 @@ button.modal-btn {
     opacity: 0.5;
     filter: brightness(0.65) saturate(0.75);
     transform: scale(0.85);
-    transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
 }
 
 .gallery-card img {
@@ -1718,6 +1840,7 @@ button.modal-btn {
     padding: 1rem;
 }
 
+/* Arrow buttons */
 .gallery-arrow {
     position: absolute;
     top: 50%;
@@ -1764,6 +1887,7 @@ button.modal-btn {
     }
 }
 
+/* Gallery — Progress Dots */
 .gallery-dots {
     display: flex;
     justify-content: center;
@@ -1797,6 +1921,7 @@ button.modal-btn {
 /* =====================================================
    CONTACT SECTION
 ===================================================== */
+
 .contact-grid {
     display: grid;
     grid-template-columns: 0.9fr 1.3fr;
@@ -1945,7 +2070,7 @@ a.info-value:hover {
 }
 
 /* =====================================================
-   FOOTER & MISC
+   FOOTER
 ===================================================== */
 .footer {
     border-top: 1px solid rgba(0, 242, 254, 0.1);
@@ -1977,8 +2102,12 @@ a.info-value:hover {
     color: var(--accent-cyan);
 }
 
+/* =====================================================
+   MOBILE NAVIGATION / RESPONSIVE
+===================================================== */
 @media (max-width: 768px) {
     .nav-toggle { display: block; }
+
     .nav-menu {
         position: fixed;
         top: 75px;
@@ -1989,6 +2118,7 @@ a.info-value:hover {
         padding: 2rem;
         transition: var(--transition);
     }
+
     .nav-menu.active { left: 0; }
     .nav-list { flex-direction: column; align-items: flex-start; }
     .hero-title { font-size: 2.4rem; }
@@ -2008,102 +2138,6 @@ a.info-value:hover {
     padding-bottom: 1.25rem;
     border-bottom: 1px solid rgba(56, 189, 248, 0.15);
     line-height: 1.6;
-}
-
-.github-activity-block {
-    margin-top: 3rem;
-    text-align: center;
-}
-
-.github-activity-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #f8fafc;
-    margin-bottom: 0.5rem;
-}
-
-.github-activity-subtitle {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-}
-
-.github-activity-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 2rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.github-activity-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-dark);
-    z-index: 2;
-    transform-origin: right;
-}
-
-.github-activity-card.is-revealed::after {
-    animation: curtainWipe 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-
-@keyframes curtainWipe {
-    to { transform: scaleX(0); }
-}
-
-.github-chart-img {
-    max-width: 100%;
-    height: auto;
-    filter: invert(90%) hue-rotate(180deg);
-    border-radius: 8px;
-}
-
-.github-profile-link {
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-family: var(--font-code);
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: var(--transition);
-    animation: linkPulseGlow 2s ease-in-out infinite;
-}
-
-@keyframes linkPulseGlow {
-    0%, 100% {
-        text-shadow: 0 0 3px rgba(56, 189, 248, 0.2);
-        opacity: 0.85;
-    }
-    50% {
-        text-shadow: 0 0 16px rgba(56, 189, 248, 1), 0 0 24px rgba(56, 189, 248, 0.6);
-        opacity: 1;
-    }
-}
-
-.github-profile-link:hover {
-    text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
-}
-
-@media (max-width: 600px) {
-    .github-chart-img {
-        transform: scale(0.85);
-    }
-}
-
-.profile-caption {
-    display: block;
-    margin-top: 0.75rem;
-    text-align: center;
-    font-family: var(--font-code);
-    font-size: 0.8rem;
-    color: var(--accent-blue);
-    letter-spacing: 0.5px;
 }
 
 .skip-link {

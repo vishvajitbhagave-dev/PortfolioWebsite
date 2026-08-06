@@ -131,320 +131,335 @@ document.addEventListener('DOMContentLoaded', () => {
     const certModal = document.getElementById('certModal');
     const certImage = document.getElementById('certImage');
 
-    if (certModal && certImage) {
-        window.openCertModal = function (imageSrc) {
-            certImage.src = imageSrc;
-            certModal.classList.add('show');
-        };
+    window.openCertModal = function (imageSrc) {
+        certImage.src = imageSrc;
+        certModal.classList.add('show');
+    };
 
-        window.closeCertModal = function () {
-            certModal.classList.remove('show');
-        };
+    window.closeCertModal = function () {
+        certModal.classList.remove('show');
+    };
 
-        window.addEventListener('click', (event) => {
-            if (event.target === certModal) {
-                closeCertModal();
-            }
-        });
+    window.addEventListener('click', (event) => {
+        if (event.target === certModal) {
+            closeCertModal();
+        }
+    });
 
-        // Close certificate modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && certModal.classList.contains('show')) {
-                closeCertModal();
-            }
-        });
-    }
+    // Close certificate modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && certModal.classList.contains('show')) {
+            closeCertModal();
+        }
+    });
 
     // 5. 3D Tilt Effect on Achievement Cards
     if (window.VanillaTilt) {
-        const achievementCards = document.querySelectorAll('.achievement-card');
-        if (achievementCards.length) {
-            VanillaTilt.init(achievementCards, {
-                max: 12,
-                speed: 400,
-                glare: true,
-                'max-glare': 0.25,
-                scale: 1.02,
-                easing: 'cubic-bezier(.03,.98,.52,.99)'
-            });
-        }
-    }
-
-    // 6. Tech Stack Scroll Reveal Animation
-    const skillCards = document.querySelectorAll('.skill-card-item');
-    const skillRowTitles = document.querySelectorAll('.skill-row-title');
-
-    if (skillCards.length || skillRowTitles.length) {
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        skillCards.forEach(card => skillObserver.observe(card));
-        skillRowTitles.forEach(title => skillObserver.observe(title));
-    }
-
-    // 7. Education Card Fade-In Animation
-    const educationCard = document.querySelector('.about-card');
-    if (educationCard) {
-        const educationObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    educationObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        educationObserver.observe(educationCard);
-    }
-
-    // 8. GitHub Activity Card — Left-to-Right Reveal Animation
-    const githubCard = document.querySelector('.github-activity-card');
-    if (githubCard) {
-        const githubObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-revealed');
-                    githubObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        githubObserver.observe(githubCard);
-    }
-
-    // 9. GALLERY — Slider + Active Highlight + Progress Dots
-    const galleryTrack = document.getElementById('gallery-track');
-    const galleryPrev = document.getElementById('gallery-prev');
-    const galleryNext = document.getElementById('gallery-next');
-
-    if (galleryTrack && galleryPrev && galleryNext) {
-        const galleryCards = galleryTrack.querySelectorAll('.gallery-card');
-
-        // --- Arrow Navigation ---
-        const scrollAmount = () => {
-            const firstCard = galleryTrack.querySelector('.gallery-card');
-            return firstCard ? firstCard.offsetWidth + 24 : 0;
-        };
-
-        galleryNext.addEventListener('click', () => {
-            galleryTrack.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+        VanillaTilt.init(document.querySelectorAll('.achievement-card'), {
+            max: 12,
+            speed: 400,
+            glare: true,
+            'max-glare': 0.25,
+            scale: 1.02,
+            easing: 'cubic-bezier(.03,.98,.52,.99)'
         });
+    }
+});
 
-        galleryPrev.addEventListener('click', () => {
-            galleryTrack.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-        });
+// =====================================================
+// TECH STACK — Scroll Reveal Animation
+// =====================================================
+const skillCards = document.querySelectorAll('.skill-card-item');
+const skillRowTitles = document.querySelectorAll('.skill-row-title');
 
-        // --- Active Center (two closest) Highlight ---
-        function updateActiveGalleryCard() {
-            const trackRect = galleryTrack.getBoundingClientRect();
-            const trackCenter = trackRect.left + trackRect.width / 2;
-
-            const cardsWithDistance = Array.from(galleryCards).map(card => {
-                const cardRect = card.getBoundingClientRect();
-                const cardCenter = cardRect.left + cardRect.width / 2;
-                return { card, distance: Math.abs(trackCenter - cardCenter) };
-            });
-
-            cardsWithDistance.sort((a, b) => a.distance - b.distance);
-            galleryCards.forEach(card => card.classList.remove('is-active'));
-            cardsWithDistance.slice(0, 2).forEach(item => {
-                item.card.classList.add('is-active');
-            });
-        }
-
-        // --- Progress Dots ---
-        const galleryDotsContainer = document.getElementById('gallery-dots');
-        let galleryDots = [];
-
-        if (galleryDotsContainer) {
-            galleryDotsContainer.innerHTML = ''; // safety: clear any old dots first
-
-            galleryCards.forEach((card, index) => {
-                const dot = document.createElement('button');
-                dot.classList.add('gallery-dot');
-                dot.setAttribute('aria-label', `Go to photo ${index + 1}`);
-                dot.addEventListener('click', () => {
-                    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                });
-                galleryDotsContainer.appendChild(dot);
-            });
-
-            galleryDots = galleryDotsContainer.querySelectorAll('.gallery-dot');
-        }
-
-        function updateActiveDot() {
-            if (!galleryDots.length) return;
-
-            const trackRect = galleryTrack.getBoundingClientRect();
-            const trackCenter = trackRect.left + trackRect.width / 2;
-
-            let closestIndex = 0;
-            let closestDistance = Infinity;
-
-            galleryCards.forEach((card, index) => {
-                const cardRect = card.getBoundingClientRect();
-                const cardCenter = cardRect.left + cardRect.width / 2;
-                const distance = Math.abs(trackCenter - cardCenter);
-
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    closestIndex = index;
-                }
-            });
-
-            galleryDots.forEach(dot => dot.classList.remove('is-active-dot'));
-            if (galleryDots[closestIndex]) {
-                galleryDots[closestIndex].classList.add('is-active-dot');
+if (skillCards.length || skillRowTitles.length) {
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                skillObserver.unobserve(entry.target);
             }
-        }
+        });
+    }, { threshold: 0.2 });
 
-        updateActiveGalleryCard();
-        updateActiveDot();
+    skillCards.forEach(card => skillObserver.observe(card));
+    skillRowTitles.forEach(title => skillObserver.observe(title));
+}
 
-        let scrollTimeout;
-        galleryTrack.addEventListener('scroll', () => {
-            window.cancelAnimationFrame(scrollTimeout);
-            scrollTimeout = window.requestAnimationFrame(() => {
-                updateActiveGalleryCard();
-                updateActiveDot();
-            });
+// =====================================================
+// EDUCATION — Card Fade-In Animation
+// =====================================================
+const educationCard = document.querySelector('.about-card');
+if (educationCard) {
+    const educationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                educationObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    educationObserver.observe(educationCard);
+}
+
+// =====================================================
+// GITHUB ACTIVITY CARD — Left-to-Right Reveal Animation
+// =====================================================
+const githubCard = document.querySelector('.github-activity-card');
+if (githubCard) {
+    const githubObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                githubObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    githubObserver.observe(githubCard);
+}
+
+// =====================================================
+// GALLERY — Slider + Active Highlight + Progress Dots
+// =====================================================
+const galleryTrack = document.getElementById('gallery-track');
+const galleryPrev = document.getElementById('gallery-prev');
+const galleryNext = document.getElementById('gallery-next');
+
+if (galleryTrack && galleryPrev && galleryNext) {
+
+    const galleryCards = galleryTrack.querySelectorAll('.gallery-card');
+
+    // --- Arrow Navigation ---
+    const scrollAmount = () => galleryTrack.querySelector('.gallery-card').offsetWidth + 24;
+
+    galleryNext.addEventListener('click', () => {
+        galleryTrack.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+
+    galleryPrev.addEventListener('click', () => {
+        galleryTrack.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+
+    // --- Active Center (two closest) Highlight ---
+    function updateActiveGalleryCard() {
+        const trackRect = galleryTrack.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+
+        const cardsWithDistance = Array.from(galleryCards).map(card => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            return { card, distance: Math.abs(trackCenter - cardCenter) };
         });
 
-        window.addEventListener('resize', () => {
+        cardsWithDistance.sort((a, b) => a.distance - b.distance);
+
+        galleryCards.forEach(card => card.classList.remove('is-active'));
+
+        cardsWithDistance.slice(0, 2).forEach(item => {
+            item.card.classList.add('is-active');
+        });
+    }
+
+    // --- Progress Dots: created ONCE, matching the number of photos ---
+    const galleryDotsContainer = document.getElementById('gallery-dots');
+    let galleryDots = [];
+
+    if (galleryDotsContainer) {
+        galleryDotsContainer.innerHTML = ''; // safety: clear any old dots first
+
+        galleryCards.forEach((card, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('gallery-dot');
+            dot.setAttribute('aria-label', `Go to photo ${index + 1}`);
+            dot.addEventListener('click', () => {
+                card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            });
+            galleryDotsContainer.appendChild(dot);
+        });
+
+        galleryDots = galleryDotsContainer.querySelectorAll('.gallery-dot');
+    }
+
+    function updateActiveDot() {
+        if (!galleryDots.length) return;
+
+        const trackRect = galleryTrack.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        galleryCards.forEach((card, index) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const distance = Math.abs(trackCenter - cardCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        galleryDots.forEach(dot => dot.classList.remove('is-active-dot'));
+        galleryDots[closestIndex].classList.add('is-active-dot');
+    }
+
+    // --- Run once on load ---
+    updateActiveGalleryCard();
+    updateActiveDot();
+
+    // --- Single scroll listener drives both updates ---
+    let scrollTimeout;
+    galleryTrack.addEventListener('scroll', () => {
+        window.cancelAnimationFrame(scrollTimeout);
+        scrollTimeout = window.requestAnimationFrame(() => {
             updateActiveGalleryCard();
             updateActiveDot();
         });
-    }
+    });
 
-    // 10. Experience Cards — Staggered Fade-Up Animation
-    const experienceCards = document.querySelectorAll('.experience-card');
-    if (experienceCards.length) {
-        const experienceObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    experienceObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
+    window.addEventListener('resize', () => {
+        updateActiveGalleryCard();
+        updateActiveDot();
+    });
+}
 
-        experienceCards.forEach(card => experienceObserver.observe(card));
-    }
-
-    // 11. Project Preview Tabs — Video / Live Toggle
-    const projectCols = document.querySelectorAll('.project-video-col');
-    if (projectCols.length) {
-        projectCols.forEach(col => {
-            const tabs = col.querySelectorAll('.preview-tab-btn');
-            const panels = col.querySelectorAll('.preview-panel');
-            const videoWrapper = col.querySelector('.project-video-wrapper');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.remove('is-active'));
-                    panels.forEach(p => p.classList.remove('is-active'));
-
-                    tab.classList.add('is-active');
-                    const targetPanel = document.getElementById(tab.dataset.target);
-                    if (targetPanel) targetPanel.classList.add('is-active');
-
-                    if (videoWrapper) {
-                        videoWrapper.classList.remove('tab-switch-flash');
-                        void videoWrapper.offsetWidth; 
-                        videoWrapper.classList.add('tab-switch-flash');
-                    }
-                });
-            });
+// =====================================================
+// EXPERIENCE — Staggered Fade-Up Animation
+// =====================================================
+const experienceCards = document.querySelectorAll('.experience-card');
+if (experienceCards.length) {
+    const experienceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                experienceObserver.unobserve(entry.target);
+            }
         });
-    }
+    }, { threshold: 0.2 });
 
-    // 12. Project Cards — Staggered Fade-Up Animation
-    const projectShowcaseCards = document.querySelectorAll('.project-showcase-card');
-    if (projectShowcaseCards.length) {
-        const projectObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+    experienceCards.forEach(card => experienceObserver.observe(card));
+}
 
-                    const liveTab = entry.target.querySelector('.preview-tab-btn[data-target="horizon-live"]');
-                    if (liveTab) {
-                        setTimeout(() => {
-                            liveTab.classList.add('pulse-once');
-                        }, 900); 
-                    }
+// =====================================================
+// PROJECTS — Preview Tabs (Video / Live Toggle)
+// =====================================================
+document.querySelectorAll('.project-video-col').forEach(col => {
+    const tabs = col.querySelectorAll('.preview-tab-btn');
+    const panels = col.querySelectorAll('.preview-panel');
+    const videoWrapper = col.querySelector('.project-video-wrapper');
 
-                    projectObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('is-active'));
+            panels.forEach(p => p.classList.remove('is-active'));
 
-        projectShowcaseCards.forEach(card => projectObserver.observe(card));
-    }
+            tab.classList.add('is-active');
+            document.getElementById(tab.dataset.target).classList.add('is-active');
 
-    // 13. Project Impact — Counting Number Animation
-    const impactCounters = document.querySelectorAll('.impact-counter');
-    if (impactCounters.length) {
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counterEl = entry.target;
-                    const target = parseInt(counterEl.dataset.count, 10);
-                    const duration = 1200; 
-                    const startTime = performance.now();
-
-                    function tick(now) {
-                        const elapsed = now - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const currentValue = Math.floor(progress * target);
-
-                        counterEl.textContent = currentValue;
-
-                        if (progress < 1) {
-                            requestAnimationFrame(tick);
-                        } else {
-                            counterEl.textContent = target; 
-                        }
-                    }
-
-                    requestAnimationFrame(tick);
-                    counterObserver.unobserve(counterEl);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        impactCounters.forEach(counter => counterObserver.observe(counter));
-    }
-
-    // 14. Project Video Wrapper — Gentle Parallax on Scroll
-    const parallaxWrappers = document.querySelectorAll('.project-video-wrapper');
-    if (parallaxWrappers.length) {
-        const maxShift = 18; 
-
-        function updateParallax() {
-            const viewportCenter = window.innerHeight / 2;
-
-            parallaxWrappers.forEach(wrapper => {
-                const rect = wrapper.getBoundingClientRect();
-                const elementCenter = rect.top + rect.height / 2;
-                const distanceFromCenter = elementCenter - viewportCenter;
-
-                const shift = Math.max(Math.min(distanceFromCenter * 0.04, maxShift), -maxShift);
-                wrapper.style.transform = `translateY(${shift}px)`;
-            });
-        }
-
-        let parallaxTimeout;
-        window.addEventListener('scroll', () => {
-            window.cancelAnimationFrame(parallaxTimeout);
-            parallaxTimeout = window.requestAnimationFrame(updateParallax);
+            // Flash the border glow to confirm the switch
+            if (videoWrapper) {
+                videoWrapper.classList.remove('tab-switch-flash');
+                void videoWrapper.offsetWidth; // forces the browser to restart the animation each click
+                videoWrapper.classList.add('tab-switch-flash');
+            }
         });
-
-        updateParallax();
-    }
+    });
 });
+
+// =====================================================
+// PROJECTS — Staggered Fade-Up + Live Preview Pulse
+// =====================================================
+const projectShowcaseCards = document.querySelectorAll('.project-showcase-card');
+if (projectShowcaseCards.length) {
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+
+                // Trigger the Live Preview tab's one-time pulse after this card's entrance animation
+                const liveTab = entry.target.querySelector('.preview-tab-btn[data-target="horizon-live"]');
+                if (liveTab) {
+                    setTimeout(() => {
+                        liveTab.classList.add('pulse-once');
+                    }, 900); // waits for the card's own fade-up to finish first
+                }
+
+                projectObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    projectShowcaseCards.forEach(card => projectObserver.observe(card));
+}
+
+// =====================================================
+// PROJECTS — Impact Counting Number Animation
+// =====================================================
+const impactCounters = document.querySelectorAll('.impact-counter');
+if (impactCounters.length) {
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counterEl = entry.target;
+                const target = parseInt(counterEl.dataset.count, 10);
+                const duration = 1200; // total animation time in ms
+                const startTime = performance.now();
+
+                function tick(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const currentValue = Math.floor(progress * target);
+
+                    counterEl.textContent = currentValue;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(tick);
+                    } else {
+                        counterEl.textContent = target; // ensure it lands exactly on the real number
+                    }
+                }
+
+                requestAnimationFrame(tick);
+                counterObserver.unobserve(counterEl);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    impactCounters.forEach(counter => counterObserver.observe(counter));
+}
+
+// =====================================================
+// PROJECTS — Gentle Parallax on Scroll
+// =====================================================
+const parallaxWrappers = document.querySelectorAll('.project-video-wrapper');
+
+if (parallaxWrappers.length) {
+    const maxShift = 18; // maximum pixels the box can shift — keep this small
+
+    function updateParallax() {
+        const viewportCenter = window.innerHeight / 2;
+
+        parallaxWrappers.forEach(wrapper => {
+            const rect = wrapper.getBoundingClientRect();
+            const elementCenter = rect.top + rect.height / 2;
+            const distanceFromCenter = elementCenter - viewportCenter;
+
+            // Normalize distance to a small, capped pixel shift
+            const shift = Math.max(Math.min(distanceFromCenter * 0.04, maxShift), -maxShift);
+
+            wrapper.style.transform = `translateY(${shift}px)`;
+        });
+    }
+
+    let parallaxTimeout;
+    window.addEventListener('scroll', () => {
+        window.cancelAnimationFrame(parallaxTimeout);
+        parallaxTimeout = window.requestAnimationFrame(updateParallax);
+    });
+
+    // Run once on load in case a card is already in view
+    updateParallax();
+}

@@ -533,15 +533,15 @@
                     <div class="project-psi">
                         <div class="psi-row">
                             <span class="psi-label">Problem</span>
-                            <p>Group and team funds usually sit under one person's control, creating trust and single-point-of-failure risk. There's no simple on-chain way to enforce shared approval over shared money.</p>
+                            <p>Team funds usually sit under one person's control, creating trust and single-point-of-failure risk.</p>
                         </div>
                         <div class="psi-row">
                             <span class="psi-label">Solution</span>
-                            <p>A multi-signature treasury dashboard on Stellar Soroban that holds USDC in a vault, requires a signer threshold to approve spending, and logs activity to an on-chain registry. Includes role management, budget caps, recurring contributions, on-chain comments, receipts, and CSV exports.</p>
+                            <p>A multi-signature treasury dApp on Stellar Soroban where a signer threshold must approve every USDC spend, with on-chain activity logs.</p>
                         </div>
                         <div class="psi-row">
                             <span class="psi-label psi-impact">Impact</span>
-                            <p>Built and deployed two Soroban contracts to Testnet (Vault Core + Vault Registry, ~34 public functions), a full dashboard, a verified end-to-end flow with real on-chain testnet transactions, and automated CI for contracts and frontend. No user or transaction-volume metrics exist in the repo.</p>
+                            <p>Deployed 2 Soroban contracts (~34 public functions) to Testnet with a full dashboard and automated CI.</p>
                         </div>
                     </div>
 
@@ -557,18 +557,11 @@
                     </div>
 
                     <div class="tech-stack">
-                        <span>Next.js 16</span>
-                        <span>React 19</span>
+                        <span>Next.js</span>
+                        <span>React</span>
                         <span>TypeScript</span>
-                        <span>Tailwind CSS v4</span>
                         <span>Rust</span>
-                        <span>Soroban SDK 20</span>
-                        <span>Stellar SDK</span>
-                        <span>Freighter / LOBSTR / Rabet</span>
-                        <span>Vitest</span>
-                        <span>Docker</span>
-                        <span>GitHub Actions</span>
-                        <span>Vercel</span>
+                        <span>Soroban SDK</span>
                     </div>
                 </div>
             </div>
@@ -603,20 +596,20 @@
                 </div>
 
                 <div class="project-info-col">
-                    <span class="net-badge">Midnight Preprod (also deployed on Midnight Preview)</span>
+                    <span class="net-badge">Midnight Preprod</span>
 
                     <div class="project-psi">
                         <div class="psi-row">
                             <span class="psi-label">Problem</span>
-                            <p>Invoice financing forces SMEs to expose invoices, identities, and repayment history to access capital. Lenders also can't verify invoices or trust without seeing private financial data.</p>
+                            <p>Invoice financing forces SMEs to expose invoices and identities, and lenders can't verify invoices without seeing private data.</p>
                         </div>
                         <div class="psi-row">
                             <span class="psi-label">Solution</span>
-                            <p>A confidential invoice-financing dApp with ZK invoice registration, sealed-bid auctions where the lowest rate wins, private buyer verification, a cross-deal reputation score, default insurance, pooled lenders, and a secondary market. Sealed-bid auctions with contract-enforced fairness: lenders bid privately via commitments, and the circuit picks the lowest rate without anyone seeing competing bids. Privacy-preserving proofs for real credit decisions: SMEs prove credit/reputation thresholds in ZK and buyers confirm invoices without revealing identity or invoice contents. Built-in risk sharing and flexibility: a 2%-premium / 50%-payout default insurance pool, pooled financing for up to 4 lenders, and secondary claim transfers.</p>
+                            <p>A confidential invoice-financing dApp using ZK proofs and sealed-bid auctions, so the lowest lender rate wins without revealing competing bids.</p>
                         </div>
                         <div class="psi-row">
                             <span class="psi-label psi-impact">Impact</span>
-                            <p>31 exported ZK circuits across 2 contracts, 461 passing tests, a live Preprod dApp, and 70 self-reported Preprod testers with feedback logged and shipped.</p>
+                            <p>31 ZK circuits across 2 contracts, 461 passing tests, and a live Preprod dApp with 70 self-reported testers.</p>
                         </div>
                     </div>
 
@@ -632,19 +625,11 @@
                     </div>
 
                     <div class="tech-stack">
-                        <span>React 19</span>
-                        <span>Vite</span>
+                        <span>React</span>
                         <span>TypeScript</span>
-                        <span>React Router</span>
                         <span>Midnight.js</span>
-                        <span>Compact (ZK smart contracts)</span>
-                        <span>Lace/1AM wallets</span>
-                        <span>ZK proof-server</span>
-                        <span>Vitest</span>
-                        <span>GitHub Actions</span>
-                        <span>GitHub Pages</span>
+                        <span>Compact</span>
                         <span>Supabase</span>
-                        <span>Sentry</span>
                     </div>
                 </div>
             </div>
@@ -684,15 +669,15 @@
                     <div class="project-psi">
                         <div class="psi-row">
                             <span class="psi-label">Problem</span>
-                            <p>Resale ticket buyers can't tell if a ticket is real, fairly priced, or if the seller will vanish after payment. Marketplaces give warnings, not a programmable hold on the money.</p>
+                            <p>Resale ticket buyers can't tell if a ticket is real or fairly priced, or if the seller will vanish after payment.</p>
                         </div>
                         <div class="psi-row">
                             <span class="psi-label">Solution</span>
-                            <p>A Gemini-powered agent explains code-computed risk, holds 1 test USDC in escrow until gate check-in, then releases to the seller or refunds after a 1-hour deadline. It also buys data via x402 and verifies each payment on-chain. The agent has its own wallet, pays ~$0.01 per data product via x402 micropayments, then reads the blockchain receipt itself to confirm the exact token, payer, payee and amount — with a double-pay guard before any retry. Risk levels come from fixed code rules, not the AI, and are re-checked on the server; medium-risk deals need a human click, and time-bucketed keys stop a retried AI call from opening a second deal. A real escrow contract locks funds, releases only on scanner check-in, refunds after the deadline, rejects double scans, and has verified (not audited) source on Basescan.</p>
+                            <p>A Gemini-powered agent rates deal risk with code-based rules and holds test USDC in an escrow contract, releasing it on check-in or refunding after 1 hour.</p>
                         </div>
                         <div class="psi-row">
                             <span class="psi-label psi-impact">Impact</span>
-                            <p>Live on Base Sepolia with recorded testnet transactions for escrow fund, gate check-in, refund, and x402 settlement; 118 app + 22 contract tests pass in CI. Test assets only; contract unaudited. The escrow contract has 22 Hardhat tests.</p>
+                            <p>Live on Base Sepolia with recorded testnet transactions; 118 app + 22 contract tests pass in CI. Testnet only, unaudited.</p>
                         </div>
                     </div>
 
@@ -708,21 +693,11 @@
                     </div>
 
                     <div class="tech-stack">
-                        <span>Next.js 16</span>
-                        <span>React 19</span>
-                        <span>TypeScript 5.9</span>
-                        <span>Tailwind CSS 4</span>
-                        <span>shadcn/Base UI</span>
-                        <span>lucide-react</span>
-                        <span>Google Gemini (@google/genai)</span>
-                        <span>viem</span>
-                        <span>x402</span>
+                        <span>Next.js</span>
+                        <span>TypeScript</span>
                         <span>Solidity</span>
                         <span>Hardhat</span>
-                        <span>OpenZeppelin</span>
-                        <span>Base Sepolia</span>
-                        <span>Vercel</span>
-                        <span>In-Memory State (no database)</span>
+                        <span>Google Gemini</span>
                     </div>
                 </div>
             </div>

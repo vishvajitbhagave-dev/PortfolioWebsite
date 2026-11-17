@@ -1281,6 +1281,28 @@ button.modal-btn {
     border: 1px dashed rgba(56, 189, 248, 0.25);
 }
 
+.projects-showcase .project-showcase-card:nth-child(2) .project-video-wrapper,
+.projects-showcase .project-showcase-card:nth-child(3) .project-video-wrapper,
+.projects-showcase .project-showcase-card:nth-child(4) .project-video-wrapper {
+    flex: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.projects-showcase .project-showcase-card:nth-child(2) .preview-panel,
+.projects-showcase .project-showcase-card:nth-child(3) .preview-panel,
+.projects-showcase .project-showcase-card:nth-child(4) .preview-panel {
+    position: absolute;
+    inset: 0;
+}
+
+.projects-showcase .project-showcase-card:nth-child(2) .project-video,
+.projects-showcase .project-showcase-card:nth-child(3) .project-video,
+.projects-showcase .project-showcase-card:nth-child(4) .project-video {
+    display: block;
+}
+
 .project-info-col {
     display: flex;
     flex-direction: column;

@@ -573,6 +573,82 @@
                 </div>
             </div>
 
+            <!-- Project: ShieldLedger -->
+            <div class="glass-card project-showcase-card">
+                <div class="project-video-col">
+                    <h3 class="project-showcase-title">ShieldLedger</h3>
+
+                    <div class="project-preview-tabs">
+                        <button class="preview-tab-btn is-active" data-target="shieldledger-video">Video Demo</button>
+                        <button class="preview-tab-btn" data-target="shieldledger-live">Live Preview</button>
+                    </div>
+
+                    <div class="project-video-wrapper">
+                        <div class="preview-panel is-active" id="shieldledger-video">
+                            <img src="shieldledger-poster.svg" alt="ShieldLedger demo video placeholder" class="project-video">
+                        </div>
+
+                        <div class="preview-panel" id="shieldledger-live">
+                            <iframe
+                                src="https://vishvajitbhagave-dev.github.io/ShieldLedger/"
+                                title="ShieldLedger Live Preview"
+                                class="project-live-iframe"
+                                loading="lazy">
+                            </iframe>
+                            <a href="https://vishvajitbhagave-dev.github.io/ShieldLedger/" target="_blank" class="iframe-fallback-link">
+                                If the preview doesn't load, open ShieldLedger in a new tab &#8599;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info-col">
+                    <span class="net-badge">Midnight Preprod (also deployed on Midnight Preview)</span>
+
+                    <div class="project-psi">
+                        <div class="psi-row">
+                            <span class="psi-label">Problem</span>
+                            <p>Invoice financing forces SMEs to expose invoices, identities, and repayment history to access capital. Lenders also can't verify invoices or trust without seeing private financial data.</p>
+                        </div>
+                        <div class="psi-row">
+                            <span class="psi-label">Solution</span>
+                            <p>A confidential invoice-financing dApp with ZK invoice registration, sealed-bid auctions where the lowest rate wins, private buyer verification, a cross-deal reputation score, default insurance, pooled lenders, and a secondary market. Sealed-bid auctions with contract-enforced fairness: lenders bid privately via commitments, and the circuit picks the lowest rate without anyone seeing competing bids. Privacy-preserving proofs for real credit decisions: SMEs prove credit/reputation thresholds in ZK and buyers confirm invoices without revealing identity or invoice contents. Built-in risk sharing and flexibility: a 2%-premium / 50%-payout default insurance pool, pooled financing for up to 4 lenders, and secondary claim transfers.</p>
+                        </div>
+                        <div class="psi-row">
+                            <span class="psi-label psi-impact">Impact</span>
+                            <p>31 exported ZK circuits across 2 contracts, 461 passing tests, a live Preprod dApp, and 70 self-reported Preprod testers with feedback logged and shipped.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-showcase-links">
+                        <a href="https://vishvajitbhagave-dev.github.io/ShieldLedger/" target="_blank" class="project-action-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Deployed Link
+                        </a>
+                        <a href="https://github.com/vishvajitbhagave-dev/ShieldLedger.git" target="_blank" class="project-action-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            GitHub Repository
+                        </a>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span>React 19</span>
+                        <span>Vite</span>
+                        <span>TypeScript</span>
+                        <span>React Router</span>
+                        <span>Midnight.js</span>
+                        <span>Compact (ZK smart contracts)</span>
+                        <span>Lace/1AM wallets</span>
+                        <span>ZK proof-server</span>
+                        <span>Vitest</span>
+                        <span>GitHub Actions</span>
+                        <span>GitHub Pages</span>
+                        <span>Supabase</span>
+                        <span>Sentry</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Project 3: Placeholder -->
             <div class="glass-card project-showcase-card">
                 <div class="project-video-col">

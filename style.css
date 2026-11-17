@@ -1390,7 +1390,7 @@ button.modal-btn {
 }
 
 /* Live Preview Tab — One-Time Highlight Pulse */
-.preview-tab-btn[data-target="horizon-live"].pulse-once {
+.preview-tab-btn[data-target$="-live"].pulse-once {
     animation: livePreviewPulse 1.4s ease-out 1;
 }
 

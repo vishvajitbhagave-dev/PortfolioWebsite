@@ -380,7 +380,7 @@ if (projectShowcaseCards.length) {
                 entry.target.classList.add('is-visible');
 
                 // Trigger the Live Preview tab's one-time pulse after this card's entrance animation
-                const liveTab = entry.target.querySelector('.preview-tab-btn[data-target="horizon-live"]');
+                const liveTab = entry.target.querySelector('.preview-tab-btn[data-target$="-live"]');
                 if (liveTab) {
                     setTimeout(() => {
                         liveTab.classList.add('pulse-once');

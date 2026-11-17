@@ -1273,33 +1273,28 @@ button.modal-btn {
     object-fit: cover;
 }
 
-.project-video-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(15, 23, 42, 0.4);
-    border: 1px dashed rgba(56, 189, 248, 0.25);
-}
-
-.projects-showcase .project-showcase-card:nth-child(2) .project-video-wrapper,
-.projects-showcase .project-showcase-card:nth-child(3) .project-video-wrapper,
-.projects-showcase .project-showcase-card:nth-child(4) .project-video-wrapper {
+.project-video-wrapper:has(#horizon-video),
+.project-video-wrapper:has(#vaultlink-video),
+.project-video-wrapper:has(#shieldledger-video),
+.project-video-wrapper:has(#ovelo-video) {
     flex: none;
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
 }
 
-.projects-showcase .project-showcase-card:nth-child(2) .preview-panel,
-.projects-showcase .project-showcase-card:nth-child(3) .preview-panel,
-.projects-showcase .project-showcase-card:nth-child(4) .preview-panel {
+.project-video-wrapper:has(#horizon-video) .preview-panel,
+.project-video-wrapper:has(#vaultlink-video) .preview-panel,
+.project-video-wrapper:has(#shieldledger-video) .preview-panel,
+.project-video-wrapper:has(#ovelo-video) .preview-panel {
     position: absolute;
     inset: 0;
 }
 
-.projects-showcase .project-showcase-card:nth-child(2) .project-video,
-.projects-showcase .project-showcase-card:nth-child(3) .project-video,
-.projects-showcase .project-showcase-card:nth-child(4) .project-video {
+.project-video-wrapper:has(#horizon-video) .project-video,
+.project-video-wrapper:has(#vaultlink-video) .project-video,
+.project-video-wrapper:has(#shieldledger-video) .project-video,
+.project-video-wrapper:has(#ovelo-video) .project-video {
     display: block;
 }
 
@@ -1312,13 +1307,6 @@ button.modal-btn {
 .project-info-col .net-badge {
     align-self: flex-start;
     margin-bottom: 1rem;
-}
-
-.project-showcase-desc {
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
 }
 
 .project-showcase-links {

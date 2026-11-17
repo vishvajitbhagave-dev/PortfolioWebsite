@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Horizon demo video placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#13233d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="44%" r="55%">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+
+  <g stroke="#38bdf8" stroke-opacity="0.1" stroke-width="1">
+    <path d="M0 120H1280M0 240H1280M0 360H1280M0 480H1280M0 600H1280"/>
+    <path d="M120 0V720M240 0V720M360 0V720M480 0V720M600 0V720M720 0V720M840 0V720M960 0V720M1080 0V720M1200 0V720"/>
+  </g>
+
+  <circle cx="640" cy="300" r="66" fill="rgba(56,189,248,0.08)" stroke="#38bdf8" stroke-width="4"/>
+  <circle cx="640" cy="300" r="36" fill="none" stroke="#38bdf8" stroke-width="3"/>
+  <ellipse cx="640" cy="300" rx="15" ry="36" fill="none" stroke="#38bdf8" stroke-width="3"/>
+  <path d="M608 278 Q640 290 672 278" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M608 322 Q640 310 672 322" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M603 300 H677" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M669 292 L677 300 L669 308" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="640" y="446" text-anchor="middle" fill="#f8fafc" font-family="'SFMono-Regular',Consolas,'Courier New',monospace" font-size="48" font-weight="700" letter-spacing="2">Horizon</text>
+  <text x="640" y="500" text-anchor="middle" fill="#94a3b8" font-family="'SFMono-Regular',Consolas,'Courier New',monospace" font-size="24" letter-spacing="4">DEMO VIDEO COMING SOON</text>
+</svg>

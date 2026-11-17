@@ -130,14 +130,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Certificate Preview Modal
     const certModal = document.getElementById('certModal');
     const certImage = document.getElementById('certImage');
+    let certModalPreviousOverflow = '';
 
     window.openCertModal = function (imageSrc) {
         certImage.src = imageSrc;
         certModal.classList.add('show');
+        certModalPreviousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
     };
 
     window.closeCertModal = function () {
         certModal.classList.remove('show');
+        document.body.style.overflow = certModalPreviousOverflow;
     };
 
     window.addEventListener('click', (event) => {

@@ -1614,6 +1614,10 @@ button.modal-btn {
     animation-delay: 0.3s;
 }
 
+.experience-timeline .experience-card.agentmaxxing-card {
+    order: -2;
+}
+
 .experience-timeline .experience-card.new-moon-card {
     order: -1;
 }

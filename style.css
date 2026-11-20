@@ -400,26 +400,34 @@ body {
 /* =====================================================
    ABOUT ME SECTION (Video / Intro split layout)
 ===================================================== */
+.about-me.section {
+    padding: 3rem 0 3.25rem;
+}
+
+.about-me .skills-header-center {
+    margin-bottom: 1.5rem;
+}
+
 .about-split-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 2.5rem;
+    gap: 1.25rem;
     align-items: stretch;
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
 .about-video-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 1.5rem !important;
+    gap: 0.5rem;
+    padding: 1rem !important;
 }
 
 .video-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 9 / 16;
-    max-height: 420px;
+    aspect-ratio: 16 / 9;
+    max-height: 280px;
     background: #000;
     border-radius: 10px;
     overflow: hidden;
@@ -436,7 +444,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin-top: 1rem;
+    margin-top: 0;
     font-family: var(--font-code);
     font-size: 0.85rem;
     color: var(--accent-blue);
@@ -451,25 +459,25 @@ body {
 }
 
 .about-info-card {
-    padding: 2.5rem !important;
+    padding: 1.5rem !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .about-lead {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #f8fafc;
     font-weight: 500;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 0.85rem;
+    line-height: 1.5;
 }
 
 .about-me-text p {
     color: var(--text-muted);
     font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
 }
 
 .about-me-text p:last-child {
@@ -481,18 +489,23 @@ body {
         grid-template-columns: 1fr;
     }
     .video-wrapper {
-        max-height: 500px;
+        max-height: 320px;
     }
 }
 
-/* About Me — Quick Stats Row */
+/* About Me — Full-width stats card */
+.about-stats-card {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem !important;
+}
+
 .about-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(56, 189, 248, 0.15);
+    gap: 0.75rem;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
 }
 
 .stat-item {
@@ -500,8 +513,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
-    padding: 1rem 0.5rem;
+    min-width: 0;
+    gap: 0.25rem;
+    padding: 0.75rem 0.5rem;
     background: rgba(15, 23, 42, 0.7);
     border: 1px solid rgba(56, 189, 248, 0.15);
     border-radius: 12px;
@@ -534,6 +548,35 @@ body {
 @media (max-width: 640px) {
     .about-stats-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .about-stats-card {
+        padding: 0.75rem !important;
+    }
+}
+
+.about-me .about-video-card,
+.about-me .about-info-card,
+.about-me .about-stats-card {
+    animation: aboutCardReveal 0.7s ease both;
+}
+
+@keyframes aboutCardReveal {
+    from {
+        opacity: 0;
+        translate: 0 18px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .about-me .about-video-card,
+    .about-me .about-info-card,
+    .about-me .about-stats-card {
+        animation-timeline: view();
+        animation-range: entry 0% cover 25%;
     }
 }
 
